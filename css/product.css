@@ -1,0 +1,364 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+
+/* NAVBAR */
+.navigation{
+    width: 20%;
+    background:black;
+}
+.navigation ul{
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    width: 117%;
+    margin-top: 50px;
+    
+}
+.navigation ul li{
+    list-style: none;
+    width: 100%; 
+    
+}
+.navigation ul li.action{
+    background: rgb(137, 131, 131);
+    
+}
+.navigation ul li a{
+    width: 100%;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+
+}
+.navigation ul li .active a{
+    color: black;
+}
+.navigation ul li.action a{
+    color: black;
+}
+
+.navigation ul li a .icon{
+    margin-left : 1.5em;
+    width: 50px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.navigation ul li a .icon ion-icon{
+    font-size: 1.2em;
+}
+.navigation>img{
+    width: 60px;
+    margin-top: 30px;
+    margin-left: 25px;
+}
+
+
+
+.container{
+    width: 100%;
+    background-color: blue;
+
+}
+.searchBar{
+    width: 100%;
+    height: 20%;
+    background-color: aquamarine;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10em;
+}
+
+.main_search{
+    width: 40%;
+    height: 3em;
+    padding: 5px;
+    background-color: black;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+select,#add_category{
+    width: 15%;
+    height: 3em;
+    font-size: 1.1em;
+}
+
+#add_category{
+    background-color: black;
+    color: white;
+    border-radius: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+}
+
+#search_product{
+    width: 90%;
+    height: 100%;
+    padding: 0 5px 0 5px;
+    font-size: 1.2em;
+}
+
+ion-icon{
+    font-size: 45px;
+    text-align: center;
+    color: white;
+    transform: scaleX(1);
+}
+
+
+
+.product{
+    display: flex;
+    justify-content: start;
+    height: 80%;
+}
+
+.scroll{
+    width: 100%;
+    height: 96%;
+    background-color: rgb(255, 200, 127);
+    display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+    scroll-behavior: smooth;
+    padding: 1.5em 0 0 0.8em;
+    gap: 0.5em;
+}
+
+
+.card {
+    width: 300px;
+    height: 400px;
+    background-color: rgb(156, 156, 156);
+    border: solid 1px black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+}
+
+.image-product{
+    margin: auto;
+    width: 80%;
+    height: 50%;
+    border-radius: 5px;
+}
+
+.infor{
+    height: 100%;
+    font-size: 1.2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
+.actionCard{
+    background-color: white;
+    border-radius: 40px 0px 10px 10px;
+    height: 50px;
+    width: 98%;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    padding-right: 5px;
+}
+
+.detail{
+    margin: 5% 0 5% 7%;
+}
+
+.detail>p{
+    font-size: 90%;
+    margin-top: 0.5em;
+}
+
+button{
+    margin: 5px;
+    height: 50%;
+}
+
+/* form product */
+#add-product,#update-product{
+    background-color: blanchedalmond;
+    height: 85%;
+    width: 40%;
+    border-radius: 1em;
+    position: absolute;
+    top: 45px;
+    left: 550px;
+}
+.formAdd,.formUpdate{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: blanchedalmond;
+    border-radius: 1em;
+}
+
+.concel{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 0.5em 3em 0 0;
+
+}
+
+#concelAdd,#concelUpdate{
+    height: 70%;
+    width: 7%;
+    background-color: rgb(159, 23, 23);
+    border-radius: 5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-form{
+    width: 85%;
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-size: 1.2em;
+}
+
+
+label{
+    font-size: 1.2em;
+    margin-top: 0.1em;
+}
+
+#nameAdd,
+#categoryAdd,
+#net-priceAdd,
+#gross-priceAdd,
+#quantityAdd,
+#describtionAdd,
+#nameUpadate,
+#categoryUpadate,
+#net-priceUpadate,
+#gross-priceUpadate,
+#quantityUpadate,
+#describtionUpadate{
+    width: 100%;
+    height: 5em;
+    font-size: 1.2em;
+    padding: 0.2em;
+}
+
+#save,#update{
+    width: 40%;
+    height: 2.5em;
+    margin-top: 0.5em;
+    background-color: black;
+    color: white;
+    font-size: 1.2em;
+
+}
+
+#categoryAdd,#categoryUpadate{
+    width: 102.5%;
+}
+
+#imageAdd,#imageUpdate{
+    height: 10em;
+    padding: 0.2em;
+    font-size: 0.9em;
+}
+
+
+/* Show and hide element */
+.hide{
+    display: none;
+}
+.show{
+    display: block;
+}
+
+/* List show about product */
+#view_goods,.list-goods{
+    width: 25em;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 2px;
+    background-color: rgb(201, 201, 201);
+    border: 1px solid;
+
+}
+
+.infor-goods{
+    padding: 1em;
+    width: 88%;
+    height: 30%;
+    font-size: 1.5em;
+    border: 1px solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 0.5em;
+
+}
+
+.history{
+    width: 90%;
+    height: 55%;
+    overflow: auto;
+    background-color: white;
+    border: 1px solid;
+    border-radius: 1em;
+}
+.total{
+   
+    width: 100%;
+    height: 15%;
+    background-color: burlywood;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.total>h2{
+    margin-left: 1em;
+}
+
+.infor-goods>ion-icon{
+    color: rgb(112, 12, 12);
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+
+/* action on btn card */
+.btnAction{
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+}
