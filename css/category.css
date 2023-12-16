@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+
+/* NAVBAR */
+.navigation{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 200px;
+    box-sizing: initial;
+    background:black;
+    transition: width 0.5s;
+}
+.navigation ul{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 117%;
+    padding-left: 5px;
+    padding-top: 40px;
+    margin-top: 100px;
+    
+}
+.navigation ul li{
+    position: relative;
+    list-style: none;
+    width: 85%; 
+    
+}
+.navigation ul li.action{
+    background: white;
+    
+}
+.navigation ul li a{
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.navigation ul li .active a{
+    color: black;
+}
+.navigation ul li.action a{
+    color: black;
+}
+.navigation ul li a .icon{
+    position: relative;
+    display: block;
+    min-width: 50px;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 31px;
+}
+.navigation ul li a .icon ion-icon{
+    font-size: 1.2em;
+}
+.navigation ul li a .title{
+    position: relative;
+    display: block;
+    padding-left: 10px;
+    height: 60px;margin-top: 30px;
+    line-height: 20px;
+
+    white-space: normal;
+}
+img{
+    width: 60px;
+    margin-top: 30px;
+    margin-left: 25px;
+
+}
