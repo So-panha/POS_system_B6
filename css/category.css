@@ -13,48 +13,34 @@ body {
 
 /* NAVBAR */
 .navigation{
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 200px;
-    box-sizing: initial;
+    width: 20%;
     background:black;
-    transition: width 0.5s;
 }
 .navigation ul{
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    position: absolute;
-    top: 0;
-    left: 0;
+    gap: 2em;
     width: 117%;
-    padding-left: 5px;
-    padding-top: 40px;
-    margin-top: 100px;
+    margin-top: 50px;
     
 }
 .navigation ul li{
-    position: relative;
     list-style: none;
-    width: 85%; 
+    width: 100%; 
     
 }
 .navigation ul li.action{
-    background: white;
+    background: rgb(137, 131, 131);
     
 }
 .navigation ul li a{
-    position: relative;
-    display: block;
     width: 100%;
-    display: flex;
     text-decoration: none;
     color: white;
     font-size: 20px;
-    justify-content: center;
+    display: flex;
     align-items: center;
+
 }
 .navigation ul li .active a{
     color: black;
@@ -62,30 +48,20 @@ body {
 .navigation ul li.action a{
     color: black;
 }
+
 .navigation ul li a .icon{
-    position: relative;
-    display: block;
-    min-width: 50px;
+    margin-left : 1.5em;
+    width: 50px;
     height: 60px;
-    justify-content: center;
+    display: flex;
     align-items: center;
-    margin-top: 31px;
 }
+
 .navigation ul li a .icon ion-icon{
     font-size: 1.2em;
 }
-.navigation ul li a .title{
-    position: relative;
-    display: block;
-    padding-left: 10px;
-    height: 60px;margin-top: 30px;
-    line-height: 20px;
-
-    white-space: normal;
-}
-img{
+.navigation>img{
     width: 60px;
     margin-top: 30px;
     margin-left: 25px;
-
 }
