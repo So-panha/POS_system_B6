@@ -7,6 +7,7 @@
     <title>Category</title>
     <script src="../js/activePage.js" defer></script>
     <link rel="stylesheet" href="../css/category.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
@@ -46,6 +47,58 @@
     </div>
 
 
-</body>
+    <!-- Form add category-->
+    <div id="cate-container">
 
+        <div class="content-search">
+            <div class="search-cate">
+                <input type="name" id="search" placeholder="search all category">
+            </div>
+            <div class="add-cate">
+                <button class="add">Add Catagory</button>
+            </div>
+        </div>
+
+        <div class="content-list-cate">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category ID</th>
+                        <th>Category Name</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Fruits</td>
+                        <td><i class="material-icons">edit</i> <i class="material-icons">delete</i></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Drinks</td>
+                        <td><i class="material-icons">edit</i> <i class="material-icons">delete</i></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <dialog style="display: none;">
+            <div class="name-cate">
+                <label>Name Category</label>
+                <input id="name" type="text" placeholder="name category" />
+                <label id="descript">Description</label>
+                <input type="text" placeholder="description">
+            </div>
+
+            <div class="button">
+                <button class="cancel">Cancel</button>
+                <button class="save">Save</button>
+            </div>
+        </dialog>
+    </div>
+    
+</body>
 </html>
