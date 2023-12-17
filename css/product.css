@@ -261,7 +261,9 @@ label{
 #net-priceUpadate,
 #gross-priceUpadate,
 #quantityUpadate,
-#describtionUpadate{
+#describtionUpadate
+#categoryAdd,
+#categoryUpadate{
     width: 100%;
     height: 5em;
     font-size: 1.2em;
@@ -278,9 +280,6 @@ label{
 
 }
 
-#categoryAdd,#categoryUpadate{
-    width: 102.5%;
-}
 
 #imageAdd,#imageUpdate{
     height: 10em;
@@ -308,16 +307,14 @@ label{
     top: 0;
     right: 2px;
     background-color: rgb(201, 201, 201);
-    border: 1px solid;
 
 }
 
 .infor-goods{
     padding: 1em;
-    width: 88%;
-    height: 30%;
+    width: 100%;
+    height: 40%;
     font-size: 1.5em;
-    border: 1px solid;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -330,7 +327,6 @@ label{
     height: 55%;
     overflow: auto;
     background-color: white;
-    border: 1px solid;
     border-radius: 1em;
 }
 .total{
@@ -349,8 +345,8 @@ label{
 .infor-goods>ion-icon{
     color: rgb(112, 12, 12);
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 15px;
+    right: 20px;
 }
 
 
