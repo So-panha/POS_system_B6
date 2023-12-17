@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order</title>
+    <script src="../js/activePage.js" defer></script>
+    <link rel="stylesheet" href="../css/order.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <div class="navigation">
+        <img src="/IMG/logo.png" alt="">
+        <ul>
+            <li class="list action">
+                <a href="#">
+                    <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                    <span class="list">Dashboard</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon"><ion-icon name="grid-outline"></ion-icon></ion-icon></span>
+                    <span class="list">Category</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon"><ion-icon name="medkit-outline"></ion-icon></span>
+                    <span class="list">Products</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon"><ion-icon name="cart-outline"></ion-icon></span>
+                    <span class="title">Order</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="orders">
+        <div class="product-order">
+
+            <!-- search -->
+            <div class="search-order">
+                <div class="search_id">
+                    <input type="text" placeholder="Search by ID">
+                </div>
+                <ion-icon name="search-circle-outline"></ion-icon>
+            </div>
+
+            <!-- show id -->
+            <div class="show_list_ID">
+                <div class="top">
+                    <h2></h2>
+                </div>
+                <div class="onder">
+                    <div class="onder_qty">
+                        <h3>QTY :</h3>
+                    </div>
+                    <div class="onder_number">
+                        <h3> $</h3>
+                    </div>
+                </div>
+            </div>
+            <button class="click_add">
+                <strong>ADD TO STORE</strong>
+            </button>
+        </div>
+
+        <!-- boder line -->
+        <div class="boder">
+            <hr>
+        </div>
+
+        <!-- list order -->
+        <div class="order-list">
+            <div class="list">
+                <div class="list_left">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td>001</td>
+                                <td>Beautiful girl</td>
+                                <td><input type="number" value="0"></td>
+                                <td>10$</td>
+                                <td><ion-icon name="close-circle-sharp"></ion-icon></td>
+                            </tr>
+                            <tr>
+                                <td>002</td>
+                                <td>Beautiful girl</td>
+                                <td><input type="number" value="0"></td>
+                                <td>10$</td>
+                                <td><ion-icon name="close-circle-sharp"></ion-icon></td>
+                            </tr>
+                            <tr>
+                                <td>003</td>
+                                <td>Beautiful girl</td>
+                                <td><input type="number" value="0"></td>
+                                <td>10$</td>
+                                <td><ion-icon name="close-circle-sharp"></ion-icon></td>
+                            </tr>
+                            <tr>
+                                <td>004</td>
+                                <td>Beautiful girl</td>
+                                <td><input type="number" value="0"></td>
+                                <td>10$</td>
+                                <td><ion-icon name="close-circle-sharp"></ion-icon></td>
+                            </tr>
+                            <tr>
+                                <td>005</td>
+                                <td>Beautiful girl</td>
+                                <td><input type="number" value="0"></td>
+                                <td>10$</td>
+                                <td><ion-icon name="close-circle-sharp"></ion-icon></td>
+                            </tr>
+                            <tr>
+                                <td>006</td>
+                                <td>Beautiful girl</td>
+                                <td><input type="number" value="0"></td>
+                                <td>10$</td>
+                                <td><ion-icon name="close-circle-sharp"></ion-icon></td>
+                            </tr>
+                            <tr>
+                                <td>007</td>
+                                <td>Beautiful girl</td>
+                                <td><input type="number" value="0"></td>
+                                <td>10$</td>
+                                <td><ion-icon name="close-circle-sharp"></ion-icon></td>
+                            </tr>
+                            <tr>
+                                <td>008</td>
+                                <td>Beautiful girl</td>
+                                <td><input type="number" value="0"></td>
+                                <td>10$</td>
+                                <td><ion-icon name="close-circle-sharp"></ion-icon></td>
+                            </tr>
+                            <tr>
+                                <td>009</td>
+                                <td>Beautiful girl</td>
+                                <td><input type="number" value="0"></td>
+                                <td>10$</td>
+                                <td><ion-icon name="close-circle-sharp"></ion-icon></td>
+                            </tr>
+                            <tr>
+                                <td>0010</td>
+                                <td>Beautiful girl</td>
+                                <td><input type="number" value="0"></td>
+                                <td>10$</td>
+                                <td><ion-icon name="close-circle-sharp"></ion-icon></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="list_right">
+                    <h2><span>Total Price :</span><span class="total">0</span></h2>
+                </div>
+            </div>
+            <button class="check_out">
+                <strong>Check Out</strong>
+            </button>
+        </div>
+    </div>
+</body>
+
+</html>
