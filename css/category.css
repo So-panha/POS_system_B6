@@ -20,7 +20,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 2em;
-    width: 117%;
+    width: 100%;
     margin-top: 50px;
     
 }
@@ -64,4 +64,108 @@ body {
     width: 60px;
     margin-top: 30px;
     margin-left: 25px;
+}
+
+
+#cate-container{
+    display: flex;
+    flex-direction: column;
+}
+.content-search{
+    display: flex;
+    justify-content: center;
+    margin-top: 3em;
+    margin-left: 6em;
+    gap: 2em;
+    flex: 0.5;
+    border-bottom: 1px solid black;
+
+    input{
+        padding: 0.5em;
+        width: 30em;
+    }
+    .add{
+        padding: 0.5em;
+        margin-left: 6em;
+        border-radius: 0.2em;
+        color: white;
+        background: black;
+    }
+
+}
+
+
+
+table{
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 1.2em;
+    min-width: 880px;
+    margin-left: 5em;
+    margin-top: 3em;
+    thead tr{
+        background-color: black;
+        color: white;
+        text-align: left;
+        font-weight: bold;
+    }
+    th, td{
+        padding: 12px 15px;
+        text-align: center;
+    }
+    tbody tr{
+        border-bottom: 1px solid #dddddd;
+    }
+}
+
+table tbody tr:nth-of-type(even){
+    background-color: #f3f3f3;
+}
+table tbody tr:last-of-type{
+    border-bottom: 2px solid black;
+}
+
+
+dialog{
+    margin: auto;
+    padding: 50px;
+    width: 25%;
+    height: 50%;
+    margin-top: 10%;
+
+    label{
+        margin-left: 5px;
+
+    }
+    input{
+       
+        padding: 10px;
+        margin-left: 5px;
+    
+    }
+}
+.name-cate{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
+}
+
+
+.save,
+.cancel{
+    padding: 5px;
+    margin-top: 35px;
+    margin-left: 30px;
+    width: 30%;
+}
+.save{
+    background: black;
+    color: white;
+    border: none;
+}
+.cancel{
+    background: rgb(232, 8, 8);
+    color: white;
+    border: none;
 }
