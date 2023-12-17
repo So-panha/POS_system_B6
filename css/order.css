@@ -75,41 +75,40 @@ body {
 }
 
 .orders {
-    width: 80%;
+    width: 100%;
     height: 100%;
     display: flex;
+    justify-content: center;
 
 
     .product-order {
-        width: 23em;
+        width: 30%;
 
         .search-order {
             background-color: black;
             display: flex;
             justify-content: center;
             text-align: center;
-            margin: 3em 2em 3em 2em;
+            margin: 4em 1em 3em 3em;
             border-radius: 10px;
 
             input {
                 width: 100%;
                 height: 2.7em;
-                font-size: 118%;
-                margin: 0.2em;
+                font-size: 135%;
                 border-radius: 5px;
             }
 
 
             ion-icon {
                 color: white;
-                font-size: 300%;
-                margin: 0.1em;
+                font-size: 350%;
             }
         }
 
         .show_list_ID {
             height: 16em;
-            margin: 4em 2em 3em 2em;
+            margin: 4em 1em 3em 3em;
             border: 1px solid black;
 
             .top {
@@ -147,38 +146,38 @@ body {
         .click_add {
             background-color: #4b4949;
             color: rgba(214, 214, 214, 0.795);
-            width: 16em;
+            width: 81%;
             height: 3em;
             font-size: 120%;
             border-radius: 5px;
-            margin: 1em 1.6em;
+            margin: 1em 0 0 2.5em;
         }
     }
 
     .boder {
         display: flex;
         margin: 0;
-        margin: 2em 2em 2em 0;
+        margin: 2em 3em 2em 2em;
     }
 
     .order-list {
-        width: 44em;
+        width: 70%;
         background-color: rgb(200, 200, 200);
 
         .list {
-            height: 22em;
-            margin: 3em 2em 2em 2em;
+            height: 60%;
+            margin: 3em 2em 2em 3em;
             border: 1px solid black;
 
             .list_left {
                 background-color: white;
                 width: 100%;
-                height: 21.9em;
+                height: 100%;
                 overflow: auto;
 
                 table {
                     background-color: rgb(198, 195, 195);
-                    width: 35em;
+                    width: 89%;
                     margin: 2em 1em 2em 2em;
                     border-collapse: collapse;
                     border-top-right-radius: 10px;
@@ -211,7 +210,7 @@ body {
             }
 
             .list_right {
-                margin: 2.5em;
+                margin: 2em;
             }
         }
 
@@ -219,10 +218,10 @@ body {
         .check_out {
             background-color: #4b4949;
             color: rgba(214, 214, 214, 0.795);
-            width: 13em;
+            width: 50%;
             height: 3em;
             font-size: 120%;
-            margin: 3em 0 0 13em;
+            margin: 7% 25%;
             border-radius: 5px;
 
         }
