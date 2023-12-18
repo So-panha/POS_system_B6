@@ -387,7 +387,30 @@ function findData(e) {
     }
 }
 
+// Storage of catagories
+// Save data of storage
+function saveDataStorage() {
+    localStorage.setItem('mainData', JSON.stringify(dataCategory));
+}
 
+// Get data of storage category
+function getDataStorage() {
+    let data = JSON.parse(localStorage.getItem('mainData'));
+    if (data != null) {
+        dataCategory = data;
+    }
+}
+
+// Parents of form select
+let categorySearch = document.querySelector('.categorySearch')
+let categoryProduct = document.querySelector('.categoryProduct');
+let categoryProductUpdate = document.querySelector('.categoryProductUpdate');
+
+
+// category
+let categoryMain = document.getElementById('category_main')
+let categoryInput = document.getElementById('categoryForm');
+let categoryUpdate = document.getElementById('categoryFormUpdate');
 
 // Class data
 getDataLocalStorage();
