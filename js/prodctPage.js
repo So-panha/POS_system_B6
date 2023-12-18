@@ -32,7 +32,9 @@ let describtionUpdate = document.getElementById('describtionUpadate');
 let imageUpdate = document.getElementById('imageUpdate');
 let updateBtn = document.getElementById('update');
 
-
+// input search 
+let searchData = document.getElementById('search_product');
+let products = document.querySelector('.product');
 
 // show form and close form
 function show(element) {
@@ -369,6 +371,20 @@ function displayCard() {
     imageInput.value = '';
 }
 
+// Find data by search 
+function findData(e) {
+    let texts = e.target.value;
+    let allProduct = products.firstElementChild.children;
+    for (let product of allProduct) {
+        let textProduct = product.firstElementChild.nextElementSibling.firstElementChild.children;
+        let textlist = textProduct[1].lastElementChild.textContent.toLocaleLowerCase();
+        if (textlist.includes(texts.toLocaleLowerCase()) == true || texts.lenght === 0) {
+            product.style.display = '';
+        } else {
+            product.style.display = 'none';
+        }
+    }
+}
 
 btnAddproduct.addEventListener('click', openAdd);
 concelAdd.addEventListener('click', closeAdd);
