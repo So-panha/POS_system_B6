@@ -50,6 +50,24 @@ function closeAdd() {
     hide(form_add)
 }
 
+// Update form 
+function update(e) {
+    show(updateForm);
+    hide(form_add);
+    let indexUpdate = e.target.closest('.card').dataset.index;
+    getIndex = indexUpdate;
+    let data = datas[indexUpdate];
+    nameUpdate.value = data.name;
+    categoryUpdate.value = data.category;
+    netpriceUpdate.value = data.netPrice;
+    grosspriceUpdate.value = data.grossPrice;
+    quantityUpdate.value = data.quantity;
+}
+
+// Start Update
+function clickUpdate() {
+    previewFilesUpdate(imageUpdate.files);
+}
 
 
 function closeUpdate() {
@@ -60,6 +78,7 @@ function closeUpdate() {
 function closeList() {
     viewGoods.style.display = 'none';
 }
+
 
 
 // convert link imgae
