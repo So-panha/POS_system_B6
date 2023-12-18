@@ -104,6 +104,20 @@ function delectCard(e) {
 }
 
 
+// Set data of localStorage
+function saveLocalStorage() {
+    localStorage.setItem('data-list', JSON.stringify(datas));
+}
+// Get data of localStorage
+function getDataLocalStorage() {
+    let data_list = JSON.parse(localStorage.getItem('data-list'));
+    if (data_list != null) {
+        datas = data_list;
+        displayCard();
+    }
+}
+
+
 // convert link imgae
 function previewFiles(files) {
     let link = [];
