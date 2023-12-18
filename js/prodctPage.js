@@ -42,10 +42,6 @@ let categoryProduct = document.querySelector('.categoryProduct');
 let categoryProductUpdate = document.querySelector('.categoryProductUpdate');
 
 
-// category
-let categoryMain = document.getElementById('category_main')
-let categoryInput = document.getElementById('categoryForm');
-let categoryUpdate = document.getElementById('categoryFormUpdate');
 
 // show form and close form
 function show(element) {
@@ -245,10 +241,11 @@ function allowType(element) {
 }
 
 // Prevent Negative Number
-function preventNumber(element){
-    if(element > -1){
+function preventNumber(element) {
+    if (Number(element) > -1) {
+        console.log(element);
         return true
-    }else{
+    } else {
         return false
     }
 }
@@ -256,44 +253,49 @@ function preventNumber(element){
 
 // create cards
 function clickCreate() {
-    console.log(categoryInput.value);
+    let valueCategories = categoryInput.value;
     let allowed = allowType(nameInput.value.length);
-    if (validation(nameInput.value) && validation(netpriceInput.value) && validation(grosspriceInput.value) && validation(quantityInput.value) && validation(imageInput.value) && checkInput(netpriceInput.value) && checkInput(grosspriceInput.value) && allowed && preventNumber(netpriceInput.value) && preventNumber(grosspriceInput.value)) {
+    if (validation(nameInput.value) && validation(valueCategories) && validation(netpriceInput.value) 
+    && validation(grosspriceInput.value) && validation(quantityInput.value) && validation(imageInput.value) && checkInput(netpriceInput.value)
+        && checkInput(grosspriceInput.value) && allowed && preventNumber(netpriceInput.value) && preventNumber(grosspriceInput.value)) {
         previewFiles(imageInput.files);
         hide(form_add);
     } else {
         if (validation(nameInput.value) == false) {
             alert('Please fill name of your product!');
-        }
+        } 
         else if (validation(netpriceInput.value) == false) {
             alert('Please fill your net price of your product!');
+        }
+        else if (checkInput(netpriceInput.value) == false) {
+            alert('You need to fill your net price as the number!');
+        }
+        else if (preventNumber(netpriceInput.value) == false) {
+            alert('You need to input your price as a positive number!');
         }
         else if (validation(grosspriceInput.value) == false) {
             alert('Please fill your gross price of your product!');
         }
+        else if (checkInput(grosspriceInput.value) == false) {
+            alert('You need to fill your gross price as the number!');
+        } 
+        else if (preventNumber(grosspriceInput.value) == false) {
+            alert('You need to fill your net price as the number!');
+        } 
         else if (validation(quantityInput.value) == false) {
             alert('Please fill quantity of your product!');
         }
-        else if (validation(imageInput.value) == false) {
-            alert('Please input your image of your product!')
-        }
-        else if (checkInput(netpriceInput.value) == false) {
-            alert('You need to fill your net price as the number!');
-        }
-        else if (checkInput(netpriceInput.value) == false) {
-            alert('You need to fill your net price as the number!');
-        }
-        else if (checkInput(grosspriceInput.value) == false) {
-            alert('You need to fill your gross price as the number!');
-        }
         else if (allowed == false) {
             alert('You do not allow for add character more than 20 in input name!');
-        }else if(checkInput(categoryInput.value) == false){
+        } 
+        else if (preventNumber(grosspriceInput.value) == false) {
+            alert('You need to input your price as a negative number!');
+        } 
+        else if (validation(imageInput.value) == false) {
+            alert('Please input your image of your product!')
+        } 
+        else if (checkInput(categoryInput.value) == false) {
             alert('You need to fill your category form!');
-        }else if(preventNumber(netpriceInput.value) == false){
-            alert('You need to input your price as a negative number!');
-        }else if(preventNumber(grosspriceInput.value) == false){
-            alert('You need to input your price as a negative number!');
         }
     }
 }
@@ -323,7 +325,7 @@ function displayCard() {
         productId.textContent = 'Product ID : '
 
         let id = document.createElement('span');
-        id.textContent = '001';
+        id.textContent = index;
         productId.appendChild(id);
         detail.appendChild(productId);
 
@@ -333,6 +335,13 @@ function displayCard() {
         name.textContent = datas[index].name;
         productName.appendChild(name);
         detail.appendChild(productName);
+
+        let categories = document.createElement('p');
+        categories.textContent = 'category : '
+        let category = document.createElement('span');
+        category.textContent = datas[index].category;
+        categories.appendChild(category);
+        detail.appendChild(categories);
 
         let Quantity = document.createElement('p');
         Quantity.textContent = 'Quantity : '
@@ -416,13 +425,19 @@ function getDataStorageCategory() {
 
 
 // Check true or not
-function valueCategory(e){
+function valueCategory(e) {
     console.log(e.target);
 }
 
 
+// category
+let categoryMain = document.getElementById('category_main')
+let categoryInput = document.getElementById('categoryForm');
+let categoryUpdate = document.getElementById('categoryFormUpdate');
+
 // Create option selection of categories
 function createOption() {
+
     categoryMain.remove();
     categoryInput.remove();
     categoryUpdate.remove();
@@ -438,29 +453,30 @@ function createOption() {
     categoryUpdate = document.createElement('select');
     categoryUpdate.id = 'categoryFormUpdate';
 
+
+    let optionMainFirst = document.createElement('option');
+    optionMainFirst.value = '#';
+    optionMainFirst.textContent = 'Categories';
+    categoryMain.appendChild(optionMainFirst);
     for (let data of dataCategory) {
-
-        let optionMainFirst = document.createElement('option');
-        optionMainFirst.textContent = 'Categories';
-
         let optionAddFirst = document.createElement('option');
         let optionUpdateFirst = document.createElement('option');
 
         let optionMain = document.createElement('option');
         optionMain.value = data.category;
         optionMain.textContent = data.category;
-        
+
         let optionAdd = document.createElement('option');
         optionAdd.value = data.category;
         optionAdd.textContent = data.category;
-        
+
         let optionUpdate = document.createElement('option');
         optionUpdate.value = data.category;
         optionUpdate.textContent = data.category;
 
-        categoryMain.appendChild(optionMainFirst);
         categoryInput.appendChild(optionAddFirst);
         categoryUpdate.appendChild(optionUpdateFirst);
+
 
         categoryMain.appendChild(optionMain);
         categoryInput.appendChild(optionAdd);
@@ -483,3 +499,4 @@ close_list.addEventListener('click', closeList);
 saveBtn.addEventListener('click', clickCreate);
 updateBtn.addEventListener('click', clickUpdate);
 searchData.addEventListener('input', findData);
+
