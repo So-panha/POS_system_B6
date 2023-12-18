@@ -36,6 +36,16 @@ let updateBtn = document.getElementById('update');
 let searchData = document.getElementById('search_product');
 let products = document.querySelector('.product');
 
+// Parents of form select
+let categorySearch = document.querySelector('.categorySearch')
+let categoryProduct = document.querySelector('.categoryProduct');
+let categoryProductUpdate = document.querySelector('.categoryProductUpdate');
+
+
+// category
+let categoryMain = document.getElementById('category_main')
+let categoryInput = document.getElementById('categoryForm');
+let categoryUpdate = document.getElementById('categoryFormUpdate');
 
 // show form and close form
 function show(element) {
@@ -246,6 +256,7 @@ function preventNumber(element){
 
 // create cards
 function clickCreate() {
+    console.log(categoryInput.value);
     let allowed = allowType(nameInput.value.length);
     if (validation(nameInput.value) && validation(netpriceInput.value) && validation(grosspriceInput.value) && validation(quantityInput.value) && validation(imageInput.value) && checkInput(netpriceInput.value) && checkInput(grosspriceInput.value) && allowed && preventNumber(netpriceInput.value) && preventNumber(grosspriceInput.value)) {
         previewFiles(imageInput.files);
@@ -394,27 +405,76 @@ function saveDataStorage() {
 }
 
 // Get data of storage category
-function getDataStorage() {
+function getDataStorageCategory() {
     let data = JSON.parse(localStorage.getItem('mainData'));
     if (data != null) {
         dataCategory = data;
+        createOption();
     }
 }
 
-// Parents of form select
-let categorySearch = document.querySelector('.categorySearch')
-let categoryProduct = document.querySelector('.categoryProduct');
-let categoryProductUpdate = document.querySelector('.categoryProductUpdate');
 
 
-// category
-let categoryMain = document.getElementById('category_main')
-let categoryInput = document.getElementById('categoryForm');
-let categoryUpdate = document.getElementById('categoryFormUpdate');
+// Check true or not
+function valueCategory(e){
+    console.log(e.target);
+}
+
+
+// Create option selection of categories
+function createOption() {
+    categoryMain.remove();
+    categoryInput.remove();
+    categoryUpdate.remove();
+    // create form main category
+    categoryMain = document.createElement('select');
+    categoryMain.id = 'category_main';
+
+    // create form form add category
+    categoryInput = document.createElement('select');
+    categoryInput.id = 'categoryForm';
+
+    // create form update category
+    categoryUpdate = document.createElement('select');
+    categoryUpdate.id = 'categoryFormUpdate';
+
+    for (let data of dataCategory) {
+
+        let optionMainFirst = document.createElement('option');
+        optionMainFirst.textContent = 'Categories';
+
+        let optionAddFirst = document.createElement('option');
+        let optionUpdateFirst = document.createElement('option');
+
+        let optionMain = document.createElement('option');
+        optionMain.value = data.category;
+        optionMain.textContent = data.category;
+        
+        let optionAdd = document.createElement('option');
+        optionAdd.value = data.category;
+        optionAdd.textContent = data.category;
+        
+        let optionUpdate = document.createElement('option');
+        optionUpdate.value = data.category;
+        optionUpdate.textContent = data.category;
+
+        categoryMain.appendChild(optionMainFirst);
+        categoryInput.appendChild(optionAddFirst);
+        categoryUpdate.appendChild(optionUpdateFirst);
+
+        categoryMain.appendChild(optionMain);
+        categoryInput.appendChild(optionAdd);
+        categoryUpdate.appendChild(optionUpdate);
+    }
+    categorySearch.appendChild(categoryMain);
+    categoryProduct.appendChild(categoryInput);
+    categoryProductUpdate.appendChild(categoryUpdate);
+}
+
 
 // Class data
 getDataLocalStorage();
-
+getDataStorageCategory();
 // Element's action
 btnAddproduct.addEventListener('click', openAdd);
 concelAdd.addEventListener('click', closeAdd);
