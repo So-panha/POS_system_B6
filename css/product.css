@@ -12,28 +12,32 @@ body {
 
 
 /* NAVBAR */
-.navigation{
+.navigation {
     width: 20%;
-    background:black;
+    background: black;
 }
-.navigation ul{
+
+.navigation ul {
     display: flex;
     flex-direction: column;
     gap: 2em;
-    width: 117%;
+    width: 100%;
     margin-top: 50px;
-    
+
 }
-.navigation ul li{
+
+.navigation ul li {
     list-style: none;
-    width: 100%; 
-    
+    width: 100%;
+
 }
-.navigation ul li.action{
+
+.navigation ul li.action {
     background: rgb(137, 131, 131);
-    
+
 }
-.navigation ul li a{
+
+.navigation ul li a {
     width: 100%;
     text-decoration: none;
     color: white;
@@ -42,36 +46,38 @@ body {
     align-items: center;
 
 }
-.navigation ul li .active a{
-    color: black;
-}
-.navigation ul li.action a{
+
+.navigation ul li .active a {
     color: black;
 }
 
-.navigation ul li a .icon{
-    margin-left : 1.5em;
+.navigation ul li.action a {
+    color: black;
+}
+
+.navigation ul li a .icon {
+    margin-left: 1.5em;
     width: 50px;
     height: 60px;
     display: flex;
     align-items: center;
 }
 
-.navigation ul li a .icon ion-icon{
+.navigation ul li a .icon ion-icon {
     font-size: 1.2em;
 }
-.navigation>img{
+
+.navigation>img {
     width: 60px;
     margin-top: 30px;
     margin-left: 25px;
 }
 
-.container{
+.container {
     width: 100%;
-    background-color: blue;
-
 }
-.searchBar{
+
+.searchBar {
     width: 100%;
     height: 20%;
     background-color: aquamarine;
@@ -79,10 +85,14 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 10em;
+    gap: 11%;
 }
 
-.main_search{
+#category_main{
+    width: 100%;
+}
+
+.main_search {
     width: 40%;
     height: 3em;
     padding: 5px;
@@ -93,13 +103,14 @@ body {
     align-items: center;
 }
 
-select,#add_category{
+select,
+#add_category {
     width: 15%;
     height: 3em;
     font-size: 1.1em;
 }
 
-#add_category{
+#add_category {
     background-color: black;
     color: white;
     border-radius: 1em;
@@ -109,14 +120,14 @@ select,#add_category{
     gap: 0.5em;
 }
 
-#search_product{
+#search_product {
     width: 90%;
     height: 100%;
     padding: 0 5px 0 5px;
     font-size: 1.2em;
 }
 
-ion-icon{
+ion-icon {
     font-size: 45px;
     text-align: center;
     color: white;
@@ -125,22 +136,21 @@ ion-icon{
 
 
 
-.product{
+.product {
     display: flex;
     justify-content: start;
     height: 80%;
 }
 
-.scroll{
+.scroll {
     width: 100%;
     height: 100%;
-    background-color: rgb(255, 200, 127);
     display: flex;
     flex-wrap: wrap;
     overflow: auto;
     scroll-behavior: smooth;
     padding: 1.5em 0 0 0.8em;
-    gap: 0.5em;
+    gap: 1.2%;
 }
 
 
@@ -155,23 +165,23 @@ ion-icon{
     padding-top: 15px;
 }
 
-.image-product{
+.image-product {
     margin: auto;
     width: 80%;
     height: 50%;
     border-radius: 5px;
 }
 
-.infor{
+.infor {
     height: 100%;
     font-size: 1.2em;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    
+
 }
 
-.actionCard{
+.actionCard {
     background-color: white;
     border-radius: 40px 0px 10px 10px;
     height: 50px;
@@ -182,31 +192,34 @@ ion-icon{
     padding-right: 5px;
 }
 
-.detail{
+.detail {
     margin: 5% 0 5% 7%;
 }
 
-.detail>p{
+.detail>p {
     font-size: 90%;
     margin-top: 0.5em;
 }
 
-button{
+button {
     margin: 5px;
     height: 50%;
 }
 
 /* form product */
-#add-product,#update-product{
+#add-product,
+#update-product {
     background-color: blanchedalmond;
     height: 85%;
     width: 40%;
     border-radius: 1em;
     position: absolute;
-    top: 45px;
-    left: 550px;
+    top: 5%;
+    left: 35%;
 }
-.formAdd,.formUpdate{
+
+.formAdd,
+.formUpdate {
     width: 100%;
     height: 100%;
     display: flex;
@@ -216,7 +229,7 @@ button{
     border-radius: 1em;
 }
 
-.concel{
+.concel {
     width: 100%;
     display: flex;
     justify-content: end;
@@ -225,7 +238,8 @@ button{
 
 }
 
-#concelAdd,#concelUpdate{
+#concelAdd,
+#concelUpdate {
     height: 70%;
     width: 7%;
     background-color: rgb(159, 23, 23);
@@ -235,7 +249,7 @@ button{
     align-items: center;
 }
 
-.main-form{
+.main-form {
     width: 85%;
     height: 75%;
     display: flex;
@@ -245,13 +259,12 @@ button{
 }
 
 
-label{
+label {
     font-size: 1.2em;
     margin-top: 0.1em;
 }
 
 #nameAdd,
-#categoryAdd,
 #net-priceAdd,
 #gross-priceAdd,
 #quantityAdd,
@@ -261,16 +274,32 @@ label{
 #net-priceUpadate,
 #gross-priceUpadate,
 #quantityUpadate,
-#describtionUpadate
-#categoryAdd,
-#categoryUpadate{
+#describtionUpadate,
+#categoryUpadate {
     width: 100%;
     height: 5em;
     font-size: 1.2em;
     padding: 0.2em;
 }
 
-#save,#update{
+.categorySearch{
+    width: 20%;
+    background-color: blue;
+}
+
+#categoryForm,#categoryFormUpdate {
+    width: 100%;
+    height: 65%;
+    font-size: 1.2em;
+    padding: 0.2em;
+}
+
+.categoryProduct,.categoryProductUpdate {
+    height: 20%;
+}
+
+#save,
+#update {
     width: 40%;
     height: 2.5em;
     margin-top: 0.5em;
@@ -281,7 +310,8 @@ label{
 }
 
 
-#imageAdd,#imageUpdate{
+#imageAdd,
+#imageUpdate {
     height: 10em;
     padding: 0.2em;
     font-size: 0.9em;
@@ -289,15 +319,17 @@ label{
 
 
 /* Show and hide element */
-.hide{
+.hide {
     display: none;
 }
-.show{
+
+.show {
     display: block;
 }
 
 /* List show about product */
-#view_goods,.list-goods{
+#view_goods,
+.list-goods {
     width: 25em;
     height: 100%;
     display: flex;
@@ -310,7 +342,7 @@ label{
 
 }
 
-.infor-goods{
+.infor-goods {
     padding: 1em;
     width: 100%;
     height: 40%;
@@ -322,15 +354,16 @@ label{
 
 }
 
-.history{
+.history {
     width: 90%;
     height: 55%;
     overflow: auto;
     background-color: white;
     border-radius: 1em;
 }
-.total{
-   
+
+.total {
+
     width: 100%;
     height: 15%;
     background-color: burlywood;
@@ -338,11 +371,12 @@ label{
     justify-content: start;
     align-items: center;
 }
-.total>h2{
+
+.total>h2 {
     margin-left: 1em;
 }
 
-.infor-goods>ion-icon{
+.infor-goods>ion-icon {
     color: rgb(112, 12, 12);
     position: absolute;
     top: 15px;
@@ -351,7 +385,7 @@ label{
 
 
 /* action on btn card */
-.btnAction{
+.btnAction {
     width: 30px;
     height: 30px;
     margin: 10px;

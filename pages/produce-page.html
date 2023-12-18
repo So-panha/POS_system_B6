@@ -50,9 +50,11 @@
                 <input type="text" id="search_product" placeholder="Search product">
                 <ion-icon name="search-sharp"></ion-icon>
             </div>
-            <select>
-                <option value="">Category</option>
-            </select>
+            <div class="categorySearch">
+                <select id="category_main">
+                    <option value="">Category</option>
+                </select>
+            </div>
             <button id="add_category">
                 <p>Add product</p>
                 <ion-icon name="add-circle-sharp"></ion-icon>
@@ -94,11 +96,13 @@
                 <div class="main-form">
                     <label for="name">Name</label>
                     <input type="text" name="name" id="nameAdd">
-
-                    <label for="category">Category</label>
-                    <select name="category" id="categoryAdd">
-                        <option value="Test"></option>
-                    </select>
+                    <!-- category -->
+                    <div class="categoryProduct">
+                        <label for="category">Category</label>
+                        <select name="category" id="categoryForm">
+                            <option value="Test"></option>
+                        </select>
+                    </div>
 
                     <label for="net-price">Net Price</label>
                     <input type="text" name="net-price" id="net-priceAdd">
@@ -128,11 +132,13 @@
                 <div class="main-form">
                     <label for="name">Name</label>
                     <input type="text" name="name" id="nameUpadate">
-
-                    <label for="category">Category</label>
-                    <select name="category" id="categoryUpadate">
-                        <option value="Test"></option>
-                    </select>
+                    <!-- category -->
+                    <div class="categoryProductUpdate">
+                        <label for="category">Category</label>
+                        <select name="category" id="categoryFormUpdate">
+                            <option value="Test"></option>
+                        </select>
+                    </div>
 
                     <label for="net-price">Net Price</label>
                     <input type="text" name="net-price" id="net-priceUpadate">
@@ -175,4 +181,5 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="/js/prodctPage.js"></script>
 </body>
+
 </html>

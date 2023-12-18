@@ -36,6 +36,7 @@ let updateBtn = document.getElementById('update');
 let searchData = document.getElementById('search_product');
 let products = document.querySelector('.product');
 
+
 // show form and close form
 function show(element) {
     element.className = 'show';
@@ -71,6 +72,46 @@ function clickUpdate() {
     previewFilesUpdate(imageUpdate.files);
 }
 
+//convert like image for update
+function previewFilesUpdate(files) {
+    let link = [];
+    function readAndPreview(file) {
+        // Make sure `file.name` matches our extensions criteria
+        if (/\.(jpe?g|png|gif)$/i.test(file.name)) {
+            const reader = new FileReader();
+
+            reader.addEventListener(
+                "load",
+                () => {
+                    link.push(reader.result);
+                    getLink(link[0])
+                },
+                false,
+            );
+            reader.readAsDataURL(file);
+        }
+    }
+
+    if (files) {
+        Array.prototype.forEach.call(files, readAndPreview);
+    }
+    getLink(link[0])
+}
+function getLink(link) {
+    if (link != null) {
+        let formUpdate = datas[getIndex];
+        formUpdate.name = nameUpdate.value;
+        formUpdate.category = categoryUpdate.value;
+        formUpdate.netPrice = netpriceUpdate.value;
+        formUpdate.quantity = quantityUpdate.value;
+        formUpdate.image = link;
+
+        // Class function
+        saveLocalStorage();
+        displayCard();
+        hide(updateForm);
+    }
+}
 
 function closeUpdate() {
     hide(updateForm);
@@ -119,7 +160,6 @@ function getDataLocalStorage() {
     }
 }
 
-
 // convert link imgae
 function previewFiles(files) {
     let link = [];
@@ -146,45 +186,6 @@ function previewFiles(files) {
     createCard(link[0])
 }
 
-// Input validation 
-function validation(element) {
-
-    if (element != '') {
-        return true
-    } else {
-        return false
-    }
-}
-
-// Check type of input 
-function checkInput(element) {
-    if (Number(element)) {
-        return true
-    } else {
-        return false
-
-    }
-}
-
-// Prevent of number charactor in input
-function allowType(element) {
-    if (element < 20) {
-        return true
-    } else {
-        return false
-    }
-}
-
-// Prevent Negative Number
-function preventNumber(element){
-    if(element > -1){
-        return true
-    }else{
-        return false
-    }
-}
-
-
 // Create object
 function createCard(link) {
     if (link != null) {
@@ -202,6 +203,7 @@ function createCard(link) {
         saveLocalStorage();
     }
 }
+
 
 // Input validation 
 function validation(element) {
@@ -284,7 +286,6 @@ function clickCreate() {
         }
     }
 }
-
 
 // Display card 
 function displayCard() {
@@ -386,13 +387,16 @@ function findData(e) {
     }
 }
 
+
+
+// Class data
+getDataLocalStorage();
+
+// Element's action
 btnAddproduct.addEventListener('click', openAdd);
 concelAdd.addEventListener('click', closeAdd);
 concelUpdate.addEventListener('click', closeUpdate);
 close_list.addEventListener('click', closeList);
 saveBtn.addEventListener('click', clickCreate);
-
-
-
-
-
+updateBtn.addEventListener('click', clickUpdate);
+searchData.addEventListener('input', findData);
