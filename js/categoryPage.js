@@ -159,6 +159,48 @@ function createtable() {
         form.style.display = "none";
     }
 
+    // Check limit text category update
+    function limitNameUpdate(){
+        let name = nameInputUpdate.value.length;
+        if(name < 20){
+            return true
+        }else{
+            return false
+        }
+    }
+    // Check limit description update
+    function limitDescriptionUpdate(){
+        let name = descriptInputUpdate.value.length;
+        if(name < 20){
+            return true
+        }else{
+            return false
+        }
+    }
+
+    // Update form category
+    function updateForm(){
+        // Limit charactor
+        let category = limitNameUpdate();
+        let descript = limitDescriptionUpdate();
+        if(category && descript){
+            dataCategory[indexUpdate].category = nameInputUpdate.value;
+            dataCategory[indexUpdate].desription = descriptInputUpdate.value;
+            saveDataStorage();
+            createtable();
+            update.style.display = "none";
+        }else if(category == false){
+            alert('You are only allow to input name catagory less than 20!');
+        }else if(descript == false){
+            alert('You are only allow to input description less than 20!');
+        }
+    }
+
+
+    // Close form update
+    function closeFormUpdate(){
+        update.style.display = "none";
+    }
 
 
     // Call data
