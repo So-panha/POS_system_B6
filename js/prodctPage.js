@@ -79,6 +79,22 @@ function closeList() {
     viewGoods.style.display = 'none';
 }
 
+function openList(e) {
+    viewGoods.style.display = '';
+    let index = e.target.closest('.card').dataset.index;
+    let data = datas[index];
+    let lists = viewGoods.firstElementChild.firstElementChild.children;
+    let totalSoldOut = totalSold.firstElementChild.firstElementChild;
+
+    lists[1].children[1].textContent = data.name;
+    lists[2].children[1].textContent = data.category;
+    lists[3].children[1].textContent = data.quantity;
+    lists[5].children[1].textContent = data.netPrice;
+    lists[6].children[1].textContent = data.grossPrice;
+
+    totalSoldOut.textContent = "3$-3"
+}
+
 
 
 // convert link imgae
