@@ -188,6 +188,93 @@ function clickCreate() {
     }
 }
 
+
+// Display card 
+function displayCard() {
+    let main_card = document.querySelector('.scroll');
+    main_card.remove();
+    main_card = document.createElement('div');
+    main_card.className = 'scroll';
+    for (let index in datas) {
+        let card = document.createElement('div');
+        card.className = 'card';
+        card.dataset.index = index;
+
+        let infor = document.createElement('div');
+        infor.className = 'infor';
+
+        let detail = document.createElement('div');
+        detail.className = 'detail';
+
+        let imageCard = document.createElement('img');
+        imageCard.className = 'image-product';
+        imageCard.src = datas[index].image;
+
+        let productId = document.createElement('p');
+        productId.textContent = 'Product ID : '
+
+        let id = document.createElement('span');
+        id.textContent = '001';
+        productId.appendChild(id);
+        detail.appendChild(productId);
+
+        let productName = document.createElement('p');
+        productName.textContent = 'Product Name : '
+        let name = document.createElement('span');
+        name.textContent = datas[index].name;
+        productName.appendChild(name);
+        detail.appendChild(productName);
+
+        let Quantity = document.createElement('p');
+        Quantity.textContent = 'Quantity : '
+        let numbers = document.createElement('span');
+        numbers.textContent = datas[index].quantity;
+        Quantity.appendChild(numbers);
+        detail.appendChild(Quantity);
+
+        let Price = document.createElement('p');
+        Price.textContent = 'Price : ';
+        let cost = document.createElement('span');
+        cost.textContent = datas[index].grossPrice;
+        Price.appendChild(cost);
+        detail.appendChild(Price);
+
+        let action = document.createElement('div');
+        action.className = 'actionCard';
+
+        let deleteBtn = document.createElement('img');
+        deleteBtn.className = 'btnAction'
+        deleteBtn.src = "../IMG/image/delete-removebg-preview.png";
+        deleteBtn.addEventListener('click', delectCard)
+
+        let editBtn = document.createElement('img');
+        editBtn.className = 'btnAction'
+        editBtn.src = "../IMG/image/edit-removebg-preview.png";
+        editBtn.addEventListener('click', update)
+
+        let viewBtn = document.createElement('img');
+        viewBtn.className = 'btnAction'
+        viewBtn.src = '../IMG/image/eye-removebg-preview.png';
+        viewBtn.addEventListener('click', openList)
+
+        action.appendChild(deleteBtn);
+        action.appendChild(editBtn);
+        action.appendChild(viewBtn);
+
+        infor.appendChild(detail);
+        infor.appendChild(action);
+
+        card.appendChild(imageCard);
+        card.appendChild(infor);
+        main_card.appendChild(card);
+    }
+    let contain = document.querySelector('.product');
+    contain.appendChild(main_card)
+    // reset 
+    imageInput.value = '';
+}
+
+
 btnAddproduct.addEventListener('click', openAdd);
 concelAdd.addEventListener('click', closeAdd);
 concelUpdate.addEventListener('click', closeUpdate);
