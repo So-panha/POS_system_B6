@@ -424,9 +424,19 @@ function getDataStorageCategory() {
 
 
 
-// Check true or not
-function valueCategory(e) {
-    console.log(e.target);
+// Veiw product by categories
+function viewCategory() {
+    let search = categoryMain.value.toLocaleLowerCase();
+    let allProduct = products.firstElementChild.children;
+    for(let product of allProduct){
+        let textProduct = product.firstElementChild.nextElementSibling.firstElementChild.children;
+        let textlist = textProduct[2].lastElementChild.textContent.toLocaleLowerCase();
+        if(textlist.includes(search.toLocaleLowerCase()) == true || search.lenght == 0){
+            product.style.display = '';
+        }else{
+            product.style.display = 'none';
+        }
+    }
 }
 
 
@@ -488,6 +498,8 @@ function createOption() {
 }
 
 
+
+
 // Class data
 getDataLocalStorage();
 getDataStorageCategory();
@@ -499,4 +511,5 @@ close_list.addEventListener('click', closeList);
 saveBtn.addEventListener('click', clickCreate);
 updateBtn.addEventListener('click', clickUpdate);
 searchData.addEventListener('input', findData);
+categoryMain.addEventListener('change', viewCategory);
 
