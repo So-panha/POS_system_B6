@@ -164,6 +164,45 @@ function createCard(link) {
     }
 }
 
+// Input validation 
+function validation(element) {
+
+    if (element != '') {
+        return true
+    } else {
+        return false
+    }
+}
+
+// Check type of input 
+function checkInput(element) {
+    if (Number(element)) {
+        return true
+    } else {
+        return false
+
+    }
+}
+
+// Prevent of number charactor in input
+function allowType(element) {
+    if (element < 20) {
+        return true
+    } else {
+        return false
+    }
+}
+
+// Prevent Negative Number
+function preventNumber(element){
+    if(element > -1){
+        return true
+    }else{
+        return false
+    }
+}
+
+
 // create cards
 function clickCreate() {
     let allowed = allowType(nameInput.value.length);
