@@ -6,11 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Category</title>
     <script src="../js/activePage.js" defer></script>
+    <script src="../js/categoryPage.js" defer></script>
     <link rel="stylesheet" href="../css/category.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
 </head>
 
 <body>
@@ -84,21 +82,39 @@
             </table>
         </div>
 
+        <div class="form_fill" style="display: none;">
+            <dialog>
+                <div class="name-cate">
+                    <label>Name Category</label>
+                    <input id="name" type="text" placeholder="name category" />
+                    <label>Description</label>
+                    <input id="descript" type="text" placeholder="description">
+                </div>
 
-        <dialog style="display: none;">
-            <div class="name-cate">
-                <label>Name Category</label>
-                <input id="name" type="text" placeholder="name category" />
-                <label id="descript">Description</label>
-                <input type="text" placeholder="description">
-            </div>
+                <div class="button">
+                    <button class="cancel">Cancel</button>
+                    <button class="save">Save</button>
+                </div>
+            </dialog>
+        </div>
 
-            <div class="button">
-                <button class="cancel">Cancel</button>
-                <button class="save">Save</button>
-            </div>
-        </dialog>
+        <div class="form_update" style="display: none;">
+            <dialog>
+                <div class="name-cate">
+                    <label>Name Category</label>
+                    <input id="nameUpdate" type="text" placeholder="name category" />
+                    <label>Description</label>
+                    <input id="descriptUpdate" type="text" placeholder="description">
+                </div>
+
+                <div class="button">
+                    <button class="cancelUpdate">Cancel</button>
+                    <button class="saveUpdate">Update</button>
+                </div>
+            </dialog>
+        </div>
     </div>
-    
+
 </body>
-</html>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

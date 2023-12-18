@@ -77,7 +77,7 @@ body {
 
 
 .content-search{
-    padding-bottom: 3em;
+    padding: 2% 0%;
     width: 85.5%;
     display: flex;
     justify-content: space-between;
@@ -112,19 +112,22 @@ table{
     font-size: 1.2em;
     min-width: 1015px;
     margin: 2em;
-    thead tr{
-        background-color: black;
-        color: white;
-        text-align: left;
-        font-weight: bold;
-    }
-    th, td{
-        padding: 12px 15px;
-        text-align: center;
-    }
-    tbody tr{
-        border-bottom: 1px solid #dddddd;
-    }
+}
+
+thead tr{
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}
+
+th, td{
+    padding: 12px 15px;
+    text-align: center;
+}
+
+
+tbody tr{
+    border-bottom: 1px solid #dddddd;
 }
 
 table tbody tr:nth-of-type(even){
@@ -135,46 +138,64 @@ table tbody tr:last-of-type{
 }
 
 
+
+.form_fill,.form_update{
+    width: 40%;
+    height: 70%;
+    position: absolute;
+    top: 16.6%;
+    left: 35%;
+}
 dialog{
-    margin: auto;
-    padding: 50px;
-    width: 25%;
-    height: 50%;
-    margin-top: 10%;
-
-    label{
-        margin-left: 5px;
-
-    }
-    input{
-       
-        padding: 10px;
-        margin-left: 5px;
-    
-    }
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
 }
 .name-cate{
+    width: 80%;
+    height: 40%;
+    font-size: 1.5em;
     display: flex;
     flex-direction: column;
     gap: 20px;
+    input{
+        padding: 10px;
+        font-size: 1em;
+    }
     
 }
 
 
+.button{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
 .save,
-.cancel{
-    padding: 5px;
-    margin-top: 35px;
-    margin-left: 30px;
+.cancel,
+.saveUpdate,
+.cancelUpdate{
+    padding: 15px;
     width: 30%;
 }
-.save{
+.save,.saveUpdate{
     background: black;
     color: white;
     border: none;
 }
-.cancel{
+.cancel,.cancelUpdate{
     background: rgb(232, 8, 8);
     color: white;
     border: none;
+}
+
+.material-icons{
+    margin: 0 10px;
 }
