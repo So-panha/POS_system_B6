@@ -95,6 +95,13 @@ function openList(e) {
     totalSoldOut.textContent = "3$-3"
 }
 
+// Delete Card 
+function delectCard(e) {
+    let index = e.target.closest('.card').dataset.index;
+    datas.splice(index, 1);
+    saveLocalStorage();
+    displayCard();
+}
 
 
 // convert link imgae
