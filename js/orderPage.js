@@ -14,6 +14,7 @@ let quantity = document.querySelector('.onder_qty');
 
 // Create data store
 let dataStore = [];
+let dataOder = [];
 
 
 
@@ -32,14 +33,18 @@ function getDataLocalStorage() {
 }
 
 
+// store goods lists
+let goodList = null;
 // Show product
 function showProduct(e) {
     let id = e.target.value;
     for (let data of dataStore) {
         if (id == data.id) {
+            goodList = data;
             goods.firstElementChild.textContent = data.name;
             quantity.firstElementChild.textContent = 'QTY : ' + data.quantity;
             product.firstElementChild.textContent = data.grossPrice + ' $';
+            dataOder.push(goodList)
         } else if (id.length == 0) {
             goods.firstElementChild.textContent = '';
             quantity.firstElementChild.textContent = '';
@@ -48,46 +53,73 @@ function showProduct(e) {
     }
 }
 
+
+
+
+
 // show on product
 function showOnProduct() {
-    let tableTR = document.createElement('tr');
+    // set condition
+    if (goodList != null) {
+        console.log(dataOder);
+        // Clear product in list
+        goods.firstElementChild.textContent = '';
+        quantity.firstElementChild.textContent = '';
+        product.firstElementChild.textContent = '';
+        searchId.value = '';
 
-    // show id
-    let tdID = document.createElement('td');
-    tdID.textContent = dataStore.id
+        // remove tbody
+        tbody.remove();
+        tbody = document.createElement('tbody');
+        document.querySelector('table').appendChild(tbody);
+        
+    
+        for(let index in dataOder){
+            let tableTR = document.createElement('tr');
+            tableTR.dataset.index = index;
+    
+            // show id
+            let tdID = document.createElement('td');
+            tdID.textContent = dataOder[index].id;
+    
+            // show name
+            let tdName = document.createElement('td');
+            tdName.textContent = dataOder[index].name;
+    
+            // show input value 
+            let tdInput = document.createElement('td');
+            let input = document.createElement('input');
+            input.type = 'number';
+            input.addEventListener('input',clickPrice)
+            tdInput.appendChild(input)
+    
+            //  show price
+            let tdPrice = document.createElement('td');
+            tdPrice.textContent = dataOder[index].grossPrice + '$';
+    
+            // create button delete
+            let tdDelete = document.createElement('td');
+            let img = document.createElement('img');
+            img.src = "../../IMG/image/remove.png";
+    
+            tdDelete.appendChild(img)
+            tableTR.appendChild(tdID);
+            tableTR.appendChild(tdName);
+            tableTR.appendChild(tdInput);
+            tableTR.appendChild(tdPrice);
+            tableTR.appendChild(tdDelete);
+    
+            tbody.appendChild(tableTR);
+        }
 
-    // show name
-    let tdName = document.createElement('td');
-    tdName.textContent = dataStore.name
-
-    // show input value 
-    let tdInput = document.createElement('td');
-    let input = document.createElement('input');
-    tdInput.appendChild(input)
-
-    //  show price
-    let tdPrice = document.createElement('td');
-    tdPrice.textContent = dataStore.price
-
-    // create button delete
-    let tdDelete = document.createElement('td');
-    let img = document.createElement('img');
-    img.src = "../../IMG/image/remove.png";
-
-    tdDelete.appendChild(img)
-    tableTR.appendChild(tdID);
-    tableTR.appendChild(tdName);
-    tableTR.appendChild(tdInput);
-    tableTR.appendChild(tdPrice);
-    tableTR.appendChild(tdDelete);
-
-    tbody.appendChild(tableTR)
+       
+    }
 }
 
 
 // Call to data
 getDataLocalStorage();
-
+getListorder();
 // Add action to element
 searchId.addEventListener('input', showProduct);
 
