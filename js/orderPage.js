@@ -145,9 +145,10 @@ function checkOut() {
         //   Create object
         let data = row.children;
         let object = {};
-        object.name = data[1].textContent;
+        object.price = data[3].textContent;
         object.quantity = data[2].firstElementChild.value;
         object.date = timeOfDay;
+        object.name = data[1].textContent;
         datahistory.push(object);
         saveHistoryOfSold();
     }
@@ -188,6 +189,7 @@ function showOnProduct() {
             let tdInput = document.createElement('td');
             let input = document.createElement('input');
             input.type = 'number';
+            input.value = 1;
             input.addEventListener('input', clickPrice)
             tdInput.appendChild(input)
 

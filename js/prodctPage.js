@@ -41,7 +41,8 @@ let categorySearch = document.querySelector('.categorySearch')
 let categoryProduct = document.querySelector('.categoryProduct');
 let categoryProductUpdate = document.querySelector('.categoryProductUpdate');
 
-
+// Data histories
+let datahistory = [];
 
 // show form and close form
 function show(element) {
@@ -132,6 +133,7 @@ function openList(e) {
     viewGoods.style.display = '';
     let index = e.target.closest('.card').dataset.index;
     let data = datas[index];
+    showHistory(index);
     let lists = viewGoods.firstElementChild.firstElementChild.children;
     let totalSoldOut = totalSold.firstElementChild.firstElementChild;
 
@@ -141,7 +143,6 @@ function openList(e) {
     lists[5].children[1].textContent = data.netPrice;
     lists[6].children[1].textContent = data.grossPrice;
 
-    totalSoldOut.textContent = "3$-3"
 }
 
 // Delete Card 
@@ -517,10 +518,67 @@ function createOption() {
 
 
 
+// Save history of sold
+function saveHistoryOfSold() {
+    localStorage.setItem('history', JSON.stringify(datahistory));
+}
+
+function getTotalPrice() {
+    let AllHistory = JSON.parse(localStorage.getItem('history'));
+    if (AllHistory != null) {
+        datahistory = AllHistory;
+    }
+}
+
+
+// Create card of history
+function showHistory(index) {
+    let allSold = 0;
+    let priceGoods = 0;
+    let AllHistory = document.querySelector('.allList');
+    AllHistory.remove();
+    AllHistory = document.createElement('div');
+    AllHistory.className = 'allList';
+    for (let history of datahistory) {
+        let goodsHistory = datas[index].name.toLocaleLowerCase();
+        let goodsCurrentPlace = history.name.toLocaleLowerCase();
+        console.log(history);
+        if (goodsHistory.includes(goodsCurrentPlace) == true) {
+            // Create list
+            let list = document.createElement('div');
+            list.className = 'list';
+            // Create paragrash
+            let date = document.createElement('p');
+            date.textContent = "Sold Out : " + history.date;
+
+            let amount = document.createElement('p');
+            amount.textContent = ':  ' + history.quantity + ' ' + '(amount)';
+            allSold += Number(history.quantity);
+
+            let price = document.createElement('p');
+            price.textContent = ':  ' + history.price + ' ' + 'Price';
+            priceGoods = history.price;
+
+            let br = document.createElement('br');
+
+            // Append into list
+            list.appendChild(date);
+            list.appendChild(amount);
+            list.appendChild(price);
+            list.appendChild(br);
+            // Append into mainList
+            AllHistory.appendChild(list);
+        }
+        document.querySelector('.history').appendChild(AllHistory);
+    }
+    let totalSoldOut = totalSold.firstElementChild.firstElementChild;
+    totalSoldOut.textContent = priceGoods + "-" + allSold;
+}
 
 // Class data
 getDataLocalStorage();
 getDataStorageCategory();
+getTotalPrice();
 // Element's action
 btnAddproduct.addEventListener('click', openAdd);
 concelAdd.addEventListener('click', closeAdd);

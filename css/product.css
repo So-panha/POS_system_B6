@@ -381,3 +381,15 @@ label {
     height: 30px;
     margin: 10px;
 }
+
+/* Show history */
+.allList{
+    margin: 10px;
+    height: 20%;
+    font-size: 20px;
+
+}
+.list{
+    padding: 10px;
+    border-bottom: 1px solid;
+}
