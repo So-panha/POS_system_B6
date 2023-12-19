@@ -22,6 +22,8 @@ let totalShow = document.querySelector('.total');
 let total = 0;
 let storeAllPrice = 0;
 
+// Data gistory
+let datahistory = [];
 
 
 
@@ -76,6 +78,19 @@ function getTotalPrice() {
 }
 
 
+// Save history of sold
+function saveHistoryOfSold() {
+    localStorage.setItem('history', JSON.stringify(datahistory));
+}
+
+function getTotalPrice() {
+    let AllHistory = JSON.parse(localStorage.getItem('history'));
+    if (AllHistory != null) {
+        datahistory = AllHistory;
+    }
+}
+
+
 // Show total of goods
 function showTotal(cost) {
     totalShow.textContent = cost + '$';
@@ -89,25 +104,62 @@ function clickPrice(e) {
         let index = e.target.closest('tr').dataset.index;
         let price = e.target.closest('tr').children[3].textContent.slice(0, -1);
         total += Number(numbersOfGoods * price);
-        showTotal(total)
+        showTotal(total);
     }
 }
 
 // Checkout Goods
 function checkOut() {
+    let tableRow = document.querySelectorAll('tbody tr');
+    for (let row of tableRow) {
+          //    All months
+          const months = [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December",
+        ];
+
+        // Set date of sold
+        let today = new Date();
+        let years = today.getFullYear();
+        let month = months[today.getMonth()];
+        let date = today.getDate();
+        let hours = today.getHours();
+        let minutes = today.getMinutes();
+        // Time local
+        if (hours > 12) {
+            hours -= 12;
+        }
+      
+        let timeOfDay = date + '-' + month + '-' + years + " " + hours + ':' + minutes;
+        console.log(timeOfDay);
+        //   Create object
+        let data = row.children;
+        let object = {};
+        object.name = data[1].textContent;
+        object.quantity = data[2].firstElementChild.value;
+        object.date = timeOfDay;
+        datahistory.push(object);
+        saveHistoryOfSold();
+    }
     storeAllPrice += total;
     saveTotalPrice();
 }
-
-
-
 
 
 // show on product
 function showOnProduct() {
     // set condition
     if (goodList != null) {
-        console.log(dataOder);
         // Clear product in list
         goods.firstElementChild.textContent = '';
         quantity.firstElementChild.textContent = '';
