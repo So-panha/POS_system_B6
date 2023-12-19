@@ -113,6 +113,7 @@ function getLink(link) {
         formUpdate.name = nameUpdate.value;
         formUpdate.category = categoryUpdate.value;
         formUpdate.netPrice = netpriceUpdate.value;
+        formUpdate.grossPrice = grosspriceUpdate.value;
         formUpdate.quantity = quantityUpdate.value;
         formUpdate.image = link;
 
@@ -138,8 +139,6 @@ function openList(e) {
     let data = datas[index];
     showHistory(index);
     let lists = viewGoods.firstElementChild.firstElementChild.children;
-    let totalSoldOut = totalSold.firstElementChild.firstElementChild;
-    console.log(qtyCurrent);
     lists[1].children[1].textContent = data.name;
     lists[2].children[1].textContent = data.category;
     lists[3].children[1].textContent = data.quantity;
@@ -376,7 +375,7 @@ function displayCard() {
         let Price = document.createElement('p');
         Price.textContent = 'Price : ';
         let cost = document.createElement('span');
-        cost.textContent = datas[index].grossPrice;
+        cost.textContent = datas[index].grossPrice + '$';
         Price.appendChild(cost);
         detail.appendChild(Price);
 
@@ -450,11 +449,12 @@ function getDataStorageCategory() {
 // Veiw product by categories
 function viewCategory() {
     let search = categoryMain.value.toLocaleLowerCase();
+    console.log(search);
     let allProduct = products.firstElementChild.children;
     for (let product of allProduct) {
         let textProduct = product.firstElementChild.nextElementSibling.firstElementChild.children;
         let textlist = textProduct[2].lastElementChild.textContent.toLocaleLowerCase();
-        if (textlist.includes(search.toLocaleLowerCase()) == true || search.lenght == 0) {
+        if (textlist.includes(search.toLocaleLowerCase()) == true || search === '#') {
             product.style.display = '';
         } else {
             product.style.display = 'none';
@@ -546,6 +546,7 @@ function showHistory(index) {
     for (let history of datahistory) {
         let goodsHistory = datas[index].name.toLocaleLowerCase();
         let goodsCurrentPlace = history.name.toLocaleLowerCase();
+        console.log(history);
         if (goodsHistory.includes(goodsCurrentPlace) == true) {
             // Create list
             let list = document.createElement('div');
