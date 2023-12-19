@@ -17,6 +17,7 @@ let dataStore = [];
 let dataOder = [];
 
 // Total of price order
+let totalShow = document.querySelector('.total');
 let total = 0;
 
 
@@ -73,6 +74,11 @@ function showProduct(e) {
 //     }
 // }
 
+// Show total of goods
+function showTotal(cost){
+    totalShow.textContent = cost + '$';
+}
+
 
 // Action click price
 function clickPrice(e){
@@ -80,7 +86,7 @@ function clickPrice(e){
     let numbersOfGoods = e.target.value;
     let price = e.target.closest('tr').children[3].textContent.slice(0,-1);
     total += Number(numbersOfGoods*price);
-    console.log(total);
+    showTotal(total)
 }
 
 
