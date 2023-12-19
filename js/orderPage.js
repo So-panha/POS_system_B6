@@ -145,7 +145,7 @@ function checkOut() {
         //   Create object
         let data = row.children;
         let object = {};
-        object.price = data[3].textContent;
+        object.price = data[3].textContent.replace('$','');
         object.quantity = data[2].firstElementChild.value;
         object.date = timeOfDay;
         object.name = data[1].textContent;
