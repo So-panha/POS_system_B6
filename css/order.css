@@ -186,7 +186,9 @@ body {
 
                             td {
                                 padding: 10px;
-
+                                img{
+                                    width: 40px;
+                                }
                                 input {
                                     width: 7em;
                                     height: 2.5em;
