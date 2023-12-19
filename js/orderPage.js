@@ -16,6 +16,9 @@ let quantity = document.querySelector('.onder_qty');
 let dataStore = [];
 let dataOder = [];
 
+// Total of price order
+let total = 0;
+
 
 
 // Get data of localStorage from product
@@ -54,17 +57,32 @@ function showProduct(e) {
 }
 
 
-// Setup data store list order
-function saveListOrder(){
-    localStorage.setItem('listOrder',JSON.stringify(dataOder));
+// // Clear data
+// let clearData = localStorage.setItem('listOrder',JSON.stringify(dataOder));;
+// console.log(clearData = 0);
+
+// // Setup data store list order
+// function saveListOrder(){
+//     localStorage.setItem('listOrder',JSON.stringify(dataOder));
+// }
+
+// function getListorder(){
+//     let list_oder = JSON.parse(localStorage.getItem('listOrder'));
+//     if(list_oder != null){
+//         dataOder = list_oder;
+//     }
+// }
+
+
+// Action click price
+function clickPrice(e){
+    let index = e.target.closest('tr').dataset.index;
+    let numbersOfGoods = e.target.value;
+    let price = e.target.closest('tr').children[3].textContent.slice(0,-1);
+    total += Number(numbersOfGoods*price);
+    console.log(total);
 }
 
-function getListorder(){
-    let list_oder = JSON.parse(localStorage.getItem('listOrder'));
-    if(list_oder != null){
-        dataOder = list_oder;
-    }
-}
 
 
 // show on product
@@ -127,9 +145,11 @@ function showOnProduct() {
 }
 
 
+
+
 // Call to data
 getDataLocalStorage();
-getListorder();
+// getListorder();
 // Add action to element
 searchId.addEventListener('input', showProduct);
 
