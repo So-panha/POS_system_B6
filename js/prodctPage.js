@@ -44,6 +44,9 @@ let categoryProductUpdate = document.querySelector('.categoryProductUpdate');
 // Data histories
 let datahistory = [];
 
+// Quatity Current
+let qtyCurrent = 0;
+
 // show form and close form
 function show(element) {
     element.className = 'show';
@@ -136,10 +139,11 @@ function openList(e) {
     showHistory(index);
     let lists = viewGoods.firstElementChild.firstElementChild.children;
     let totalSoldOut = totalSold.firstElementChild.firstElementChild;
-
+    console.log(qtyCurrent);
     lists[1].children[1].textContent = data.name;
     lists[2].children[1].textContent = data.category;
     lists[3].children[1].textContent = data.quantity;
+    lists[4].children[1].textContent = Number(data.quantity - qtyCurrent);
     lists[5].children[1].textContent = data.netPrice;
     lists[6].children[1].textContent = data.grossPrice;
 
@@ -542,7 +546,6 @@ function showHistory(index) {
     for (let history of datahistory) {
         let goodsHistory = datas[index].name.toLocaleLowerCase();
         let goodsCurrentPlace = history.name.toLocaleLowerCase();
-        console.log(history);
         if (goodsHistory.includes(goodsCurrentPlace) == true) {
             // Create list
             let list = document.createElement('div');
@@ -553,11 +556,13 @@ function showHistory(index) {
 
             let amount = document.createElement('p');
             amount.textContent = 'Amount : ' + history.quantity;
+            qtyCurrent += Number(history.quantity);
             allSold += Number(history.quantity);
 
             let price = document.createElement('p');
             price.textContent = 'Price : ' + history.price;
             priceGoods = history.price;
+           
 
             let br = document.createElement('br');
 

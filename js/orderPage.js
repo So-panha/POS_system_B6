@@ -72,7 +72,7 @@ function saveTotalPrice() {
 
 function getTotalPrice() {
     let AllPrice = JSON.parse(localStorage.getItem('storeAllPrice'));
-    if (list_oder != null) {
+    if (AllPrice != null) {
         storeAllPrice = AllPrice;
     }
 }
@@ -150,8 +150,8 @@ function checkOut() {
         object.date = timeOfDay;
         object.name = data[1].textContent;
         datahistory.push(object);
-        saveHistoryOfSold();
     }
+    saveHistoryOfSold();
     storeAllPrice += total;
     saveTotalPrice();
 }
@@ -220,6 +220,7 @@ function showOnProduct() {
 
 // Call to data
 getDataLocalStorage();
+getTotalPrice();
 // getListorder();
 // Add action to element
 searchId.addEventListener('input', showProduct);
