@@ -19,6 +19,7 @@ let dataOder = [];
 // Total of price order
 let totalShow = document.querySelector('.total');
 let total = 0;
+let storeAllPrice = 0;
 
 
 
@@ -59,20 +60,18 @@ function showProduct(e) {
 
 
 // // Clear data
-// let clearData = localStorage.setItem('listOrder',JSON.stringify(dataOder));;
-// console.log(clearData = 0);
+// Setup data store list order
+function saveListOrder(){
+    localStorage.setItem('storeAllPrice',JSON.stringify(storeAllPrice));
+}
 
-// // Setup data store list order
-// function saveListOrder(){
-//     localStorage.setItem('listOrder',JSON.stringify(dataOder));
-// }
+function getListorder(){
+    let AllPrice = JSON.parse(localStorage.getItem('storeAllPrice'));
+    if(list_oder != null){
+        storeAllPrice = AllPrice;
+    }
+}
 
-// function getListorder(){
-//     let list_oder = JSON.parse(localStorage.getItem('listOrder'));
-//     if(list_oder != null){
-//         dataOder = list_oder;
-//     }
-// }
 
 // Show total of goods
 function showTotal(cost){
