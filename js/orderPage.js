@@ -54,7 +54,17 @@ function showProduct(e) {
 }
 
 
+// Setup data store list order
+function saveListOrder(){
+    localStorage.setItem('listOrder',JSON.stringify(dataOder));
+}
 
+function getListorder(){
+    let list_oder = JSON.parse(localStorage.getItem('listOrder'));
+    if(list_oder != null){
+        dataOder = list_oder;
+    }
+}
 
 
 // show on product
