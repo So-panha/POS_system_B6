@@ -195,10 +195,6 @@ body {
                                     text-align: center;
                                     border: none;
                                 }
-
-                                ion-icon {
-                                    font-size: 200%;
-                                }
                             }
                         }
                     }
