@@ -552,11 +552,11 @@ function showHistory(index) {
             date.textContent = "Sold Out : " + history.date;
 
             let amount = document.createElement('p');
-            amount.textContent = ':  ' + history.quantity + ' ' + '(amount)';
+            amount.textContent = 'Amount : ' + history.quantity;
             allSold += Number(history.quantity);
 
             let price = document.createElement('p');
-            price.textContent = ':  ' + history.price + ' ' + 'Price';
+            price.textContent = 'Price : ' + history.price;
             priceGoods = history.price;
 
             let br = document.createElement('br');
