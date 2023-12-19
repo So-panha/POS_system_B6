@@ -194,16 +194,14 @@ body {
 
                             td {
                                 padding: 10px;
-
+                                img{
+                                    width: 40px;
+                                }
                                 input {
                                     width: 7em;
                                     height: 2.5em;
                                     text-align: center;
                                     border: none;
-                                }
-
-                                ion-icon {
-                                    font-size: 200%;
                                 }
                             }
                         }
