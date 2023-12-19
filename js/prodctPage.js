@@ -166,6 +166,8 @@ function getDataLocalStorage() {
     }
 }
 
+
+let setId = null;
 // convert link imgae
 function previewFiles(files) {
     let link = [];
@@ -190,10 +192,25 @@ function previewFiles(files) {
         Array.prototype.forEach.call(files, readAndPreview);
     }
     createCard(link[0])
+    // set up ID
+    let uniqueId = localStorage.getItem("id");
+    if (uniqueId === null || datas.length === 0) {
+        uniqueId = 1
+        localStorage.setItem("id", JSON.stringify(uniqueId));
+
+    } else {
+        uniqueId = parseInt(uniqueId) + 1;
+        localStorage.setItem("id", JSON.stringify(uniqueId));
+        console.log(uniqueId);
+    };
+    setId = uniqueId;
 }
+
 
 // Create object
 function createCard(link) {
+
+
     if (link != null) {
         store = {};
         store.name = nameInput.value;
@@ -202,6 +219,7 @@ function createCard(link) {
         store.grossPrice = grosspriceInput.value;
         store.quantity = quantityInput.value;
         store.image = link;
+        store.id = setId;
 
         // add object to array
         datas.push(store);
@@ -255,15 +273,15 @@ function preventNumber(element) {
 function clickCreate() {
     let valueCategories = categoryInput.value;
     let allowed = allowType(nameInput.value.length);
-    if (validation(nameInput.value) && validation(valueCategories) && validation(netpriceInput.value) 
-    && validation(grosspriceInput.value) && validation(quantityInput.value) && validation(imageInput.value) && checkInput(netpriceInput.value)
+    if (validation(nameInput.value) && validation(valueCategories) && validation(netpriceInput.value)
+        && validation(grosspriceInput.value) && validation(quantityInput.value) && validation(imageInput.value) && checkInput(netpriceInput.value)
         && checkInput(grosspriceInput.value) && allowed && preventNumber(netpriceInput.value) && preventNumber(grosspriceInput.value)) {
         previewFiles(imageInput.files);
         hide(form_add);
     } else {
         if (validation(nameInput.value) == false) {
             alert('Please fill name of your product!');
-        } 
+        }
         else if (validation(netpriceInput.value) == false) {
             alert('Please fill your net price of your product!');
         }
@@ -278,22 +296,22 @@ function clickCreate() {
         }
         else if (checkInput(grosspriceInput.value) == false) {
             alert('You need to fill your gross price as the number!');
-        } 
+        }
         else if (preventNumber(grosspriceInput.value) == false) {
             alert('You need to fill your net price as the number!');
-        } 
+        }
         else if (validation(quantityInput.value) == false) {
             alert('Please fill quantity of your product!');
         }
         else if (allowed == false) {
             alert('You do not allow for add character more than 20 in input name!');
-        } 
+        }
         else if (preventNumber(grosspriceInput.value) == false) {
             alert('You need to input your price as a negative number!');
-        } 
+        }
         else if (validation(imageInput.value) == false) {
             alert('Please input your image of your product!')
-        } 
+        }
         else if (checkInput(categoryInput.value) == false) {
             alert('You need to fill your category form!');
         }
@@ -306,7 +324,7 @@ function displayCard() {
     main_card.remove();
     main_card = document.createElement('div');
     main_card.className = 'scroll';
-    for (let index in datas) {
+    for (let index = 0; index < datas.length; index++) {
         let card = document.createElement('div');
         card.className = 'card';
         card.dataset.index = index;
@@ -325,7 +343,7 @@ function displayCard() {
         productId.textContent = 'Product ID : '
 
         let id = document.createElement('span');
-        id.textContent = index;
+        id.textContent = datas[index].id;
         productId.appendChild(id);
         detail.appendChild(productId);
 
@@ -428,12 +446,12 @@ function getDataStorageCategory() {
 function viewCategory() {
     let search = categoryMain.value.toLocaleLowerCase();
     let allProduct = products.firstElementChild.children;
-    for(let product of allProduct){
+    for (let product of allProduct) {
         let textProduct = product.firstElementChild.nextElementSibling.firstElementChild.children;
         let textlist = textProduct[2].lastElementChild.textContent.toLocaleLowerCase();
-        if(textlist.includes(search.toLocaleLowerCase()) == true || search.lenght == 0){
+        if (textlist.includes(search.toLocaleLowerCase()) == true || search.lenght == 0) {
             product.style.display = '';
-        }else{
+        } else {
             product.style.display = 'none';
         }
     }
