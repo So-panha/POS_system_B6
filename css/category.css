@@ -30,8 +30,7 @@ body {
     
 }
 .navigation ul li.action{
-    background: rgb(137, 131, 131);
-    
+    width: 85.5%;
 }
 .navigation ul li a{
     width: 100%;
@@ -41,12 +40,6 @@ body {
     display: flex;
     align-items: center;
 
-}
-.navigation ul li .active a{
-    color: black;
-}
-.navigation ul li.action a{
-    color: black;
 }
 
 .navigation ul li a .icon{
