@@ -79,6 +79,7 @@ body {
             border-radius: 10px;
 
             input {
+                padding: 10px;
                 width: 100%;
                 height: 2.7em;
                 font-size: 135%;
