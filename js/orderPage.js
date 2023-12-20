@@ -124,6 +124,7 @@ function clickPrice(e) {
         let price = e.target.closest('tr').children[3].textContent.slice(0, -1);
         total += Number(numbersOfGoods * price);
         showTotal(total);
+        document.querySelector('.showPrice').textContent = 'Total Price : ' + total + '$';
     }
 }
 
@@ -328,7 +329,7 @@ function generatePDF() {
         let lists = data.children;
         text += 'Goods : ' + lists[1].textContent + '  --- Price : ' + lists[3].textContent + ' --- Numbers : ' + lists[2].firstElementChild.value + '\n';
     }
-
+    // Show price 
 
     var pdf = new jsPDF({
         orientation: 'p',
