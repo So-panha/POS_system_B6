@@ -121,6 +121,7 @@ function showProduct() {
     let maxArr = [];
     for (let index = 0; index < 5; index++) {
         if (index + 1 <= compareData.length) {
+            console.log(1);
             // Set max price
             let getIndex = 0;
             let max = compareData[0].amount;
@@ -139,6 +140,7 @@ function showProduct() {
                 maxArr.push(storeData[index].amount);
             }
         }
+        console.log(maxArr);
     }
     // Get product by price
     for (let index = 0; index < maxArr.length; index++) {

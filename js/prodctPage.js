@@ -454,7 +454,7 @@ function viewCategory() {
     for (let product of allProduct) {
         let textProduct = product.firstElementChild.nextElementSibling.firstElementChild.children;
         let textlist = textProduct[2].lastElementChild.textContent.toLocaleLowerCase();
-        if (textlist.includes(search.toLocaleLowerCase()) == true || search === '#') {
+        if (textlist.includes(search.toLocaleLowerCase()) == true || search === '') {
             product.style.display = '';
         } else {
             product.style.display = 'none';
@@ -488,7 +488,7 @@ function createOption() {
 
 
     let optionMainFirst = document.createElement('option');
-    optionMainFirst.value = '#';
+    optionMainFirst.value = '';
     optionMainFirst.textContent = 'Categories';
     categoryMain.appendChild(optionMainFirst);
     for (let data of dataCategory) {
@@ -561,7 +561,7 @@ function showHistory(index) {
             allSold += Number(history.quantity);
 
             let price = document.createElement('p');
-            price.textContent = 'Price : ' + history.price;
+            price.textContent = 'Price : ' + history.price*history.quantity + '$';
             priceGoods = history.price;
            
 
