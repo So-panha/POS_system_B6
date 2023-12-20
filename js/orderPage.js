@@ -251,7 +251,9 @@ function showOnProduct() {
             // delete list order
             img.addEventListener('click', deleteTable)
             function deleteTable() {
-                tableTR.remove()
+                let index = tableTR.dataset.index;
+                dataOder.splice(index,1);
+                showOnProduct();
             }
         }
 
