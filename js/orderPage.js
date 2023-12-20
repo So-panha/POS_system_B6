@@ -35,6 +35,9 @@ let datahistory = [];
 // store
 let store = null;
 
+// Loading 
+let load = document.querySelector('.spinner-square');
+
 
 // Set data of localStorage 
 function saveLocalStorage() {
@@ -70,7 +73,7 @@ function showProduct(e) {
                 store = null;
             }
         }
-    }else{
+    } else {
         goods.firstElementChild.textContent = '';
         quantity.firstElementChild.textContent = '';
         product.firstElementChild.textContent = '';
@@ -126,6 +129,7 @@ function clickPrice(e) {
 
 // Checkout Goods
 function checkOut() {
+
     // Get table rows
     let tableRow = document.querySelectorAll('tbody tr');
     // Checkout value of input
@@ -139,7 +143,8 @@ function checkOut() {
     }
     // show form payment
     if (allowShow == null) {
-        formPayment.className = 'show';
+        // Call to loading
+        alertBtn();
     } else {
         allowShow = null;
     }
@@ -173,7 +178,7 @@ function checkOut() {
         }
 
         let timeOfDay = date + '-' + month + '-' + years + " " + hours + ':' + minutes;
- 
+
         //   Create object
         let data = row.children;
         let object = {};
@@ -252,7 +257,7 @@ function showOnProduct() {
             img.addEventListener('click', deleteTable)
             function deleteTable() {
                 let index = tableTR.dataset.index;
-                dataOder.splice(index,1);
+                dataOder.splice(index, 1);
                 showOnProduct();
             }
         }
@@ -270,6 +275,19 @@ function showPayment() {
     tbody.remove();
     tbody = document.createElement('tbody');
     document.querySelector('table').appendChild(tbody);
+}
+
+// loading 
+
+function alertBtn() {
+    setTimeout(alertFunc, 2000);
+    load.style.display = '';
+}
+
+function alertFunc() {
+    load.style.display = 'none';
+    formPayment.className = 'show';
+    generatePDF();
 }
 
 
@@ -306,12 +324,12 @@ function generatePDF() {
     let timeOfDay = date + '-' + month + '-' + years + " " + hours + ':' + minutes;
     let text = null;
     let datas = tbody.children;
-    for(let data of datas){
+    for (let data of datas) {
         let lists = data.children;
-        text += 'Goods : ' + lists[1].textContent + '  --"-- Price : ' + lists[3].textContent + ' --"-- Numbers : ' + lists[2].firstElementChild.value + '\n';
+        text += 'Goods : ' + lists[1].textContent + '  --- Price : ' + lists[3].textContent + ' --- Numbers : ' + lists[2].firstElementChild.value + '\n';
     }
 
-   
+
     var pdf = new jsPDF({
         orientation: 'p',
         unit: 'mm',
