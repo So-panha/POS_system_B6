@@ -210,6 +210,12 @@ function showOnProduct() {
             tableTR.appendChild(tdDelete);
 
             tbody.appendChild(tableTR);
+
+            // delete list order
+            img.addEventListener('click',deleteTable)
+            function deleteTable() {
+                tableTR.remove()
+            }
         }
 
 
