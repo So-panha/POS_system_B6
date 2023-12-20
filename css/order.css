@@ -12,32 +12,27 @@ body {
 
 
 /* NAVBAR */
-.navigation {
+.navigation{
     width: 20%;
-    background: black;
+    background:black;
 }
-
-.navigation ul {
+.navigation ul{
     display: flex;
     flex-direction: column;
     gap: 2em;
-    width: 117%;
-    margin-top: 50px;
-
-}
-
-.navigation ul li {
-    list-style: none;
     width: 100%;
-
+    margin-top: 50px;
+    
 }
-
-.navigation ul li.action {
+.navigation ul li{
+    list-style: none;
+    width: 100%; 
+    
+}
+.navigation ul li.action{
     width: 85.5%;
-
 }
-
-.navigation ul li a {
+.navigation ul li a{
     width: 100%;
     text-decoration: none;
     color: white;
@@ -47,24 +42,23 @@ body {
 
 }
 
-
-.navigation ul li a .icon {
-    margin-left: 1.5em;
+.navigation ul li a .icon{
+    margin-left : 1.5em;
     width: 50px;
     height: 60px;
     display: flex;
     align-items: center;
 }
 
-.navigation ul li a .icon ion-icon {
+.navigation ul li a .icon ion-icon{
     font-size: 1.2em;
 }
-
-.navigation>img {
+.navigation>img{
     width: 60px;
     margin-top: 30px;
     margin-left: 25px;
 }
+
 
 .orders {
     width: 100%;
@@ -278,3 +272,6 @@ body {
     display: none;
 }
 
+.main{
+    background-color: rgb(147, 143, 143);
+}
