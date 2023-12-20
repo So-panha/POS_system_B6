@@ -227,7 +227,7 @@ body {
 
 
 /* Payment */
-.payment{
+#payment{
     width: 25%;
     height: 70%;
     position: absolute;
@@ -258,5 +258,13 @@ body {
             border: none;
         }
     }
+}
+
+/* Hide and show payment */
+.show{
+    display: block;
+}
+.hide{
+    display: none;
 }
 

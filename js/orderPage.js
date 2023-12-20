@@ -110,6 +110,9 @@ function clickPrice(e) {
 
 // Checkout Goods
 function checkOut() {
+    // show form payment
+    formPayment.className = 'show';
+
     let tableRow = document.querySelectorAll('tbody tr');
     for (let row of tableRow) {
           //    All months
@@ -223,6 +226,19 @@ function showOnProduct() {
 }
 
 
+let formPayment = document.getElementById('payment');
+let btnDone = document.querySelector('.btnDone');
+
+
+// Action payment
+function showPayment(){
+    formPayment.className = 'hide';
+    tbody.remove();
+    tbody = document.createElement('tbody');
+    document.querySelector('table').appendChild(tbody);
+}
+
+
 
 // Call to data
 getDataLocalStorage();
@@ -232,7 +248,10 @@ getTotalPrice();
 searchId.addEventListener('input', showProduct);
 
 //pash product
-add.addEventListener('click', showOnProduct)
+add.addEventListener('click', showOnProduct);
 
 // Checkout btn
-btnCheckOut.addEventListener('click', checkOut)
+btnCheckOut.addEventListener('click', checkOut);
+
+// Action btn payment
+btnDone.addEventListener('click',showPayment)
