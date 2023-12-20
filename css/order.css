@@ -246,7 +246,7 @@ body {
         img{
             margin-left: 2.5em;
         }
-        button{
+        .btnDone{
             padding: 12px;
             width: 30%;
             margin-left: 7em;
@@ -258,6 +258,16 @@ body {
             border: none;
         }
     }
+}
+
+#PDF{
+    width: 25%;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(167, 28, 10);
+    position: absolute;
+    top: 73.5%;
+    right: 36%;
 }
 
 /* Hide and show payment */

@@ -172,7 +172,7 @@ function checkOut() {
         }
 
         let timeOfDay = date + '-' + month + '-' + years + " " + hours + ':' + minutes;
-        console.log(timeOfDay);
+ 
         //   Create object
         let data = row.children;
         let object = {};
@@ -268,6 +268,56 @@ function showPayment() {
     document.querySelector('table').appendChild(tbody);
 }
 
+
+
+// Download PDF
+function generatePDF() {
+    const months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+    ];
+
+    // Set date of sold
+    let today = new Date();
+    let years = today.getFullYear();
+    let month = months[today.getMonth()];
+    let date = today.getDate();
+    let hours = today.getHours();
+    let minutes = today.getMinutes();
+    // Time local
+    if (hours > 12) {
+        hours -= 12;
+    }
+
+    let timeOfDay = date + '-' + month + '-' + years + " " + hours + ':' + minutes;
+    let text = null;
+    let datas = tbody.children;
+    for(let data of datas){
+        let lists = data.children;
+        text += 'Goods : ' + lists[1].textContent + '  --"-- Price : ' + lists[3].textContent + ' --"-- Numbers : ' + lists[2].firstElementChild.value + '\n';
+    }
+
+   
+    var pdf = new jsPDF({
+        orientation: 'p',
+        unit: 'mm',
+        format: 'a4',
+        putOnlyUsedFonts: true
+    });
+    pdf.text(text, 20, 20);
+    pdf.text("Date :" + timeOfDay, 20, 30);
+    pdf.save('Recipient');
+}
 
 
 // Call to data
