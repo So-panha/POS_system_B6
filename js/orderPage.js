@@ -109,6 +109,7 @@ function getTotalPrice() {
 // Show total of goods
 function showTotal(cost) {
     totalShow.textContent = cost + '$';
+
 }
 
 
@@ -130,7 +131,7 @@ function checkOut() {
     // Checkout value of input
     for (let row of tableRow) {
         let noValue = row.children[2].firstElementChild.value;
-        if (noValue == 0 && noValue > -1) {
+        if (noValue <= 0) {
             alert('You need to fill number of product before you checkout!')
             allowShow = false;
             return false
@@ -262,6 +263,7 @@ function showOnProduct() {
 
 // Action payment
 function showPayment() {
+    totalShow.textContent = 0;
     formPayment.className = 'hide';
     tbody.remove();
     tbody = document.createElement('tbody');
