@@ -130,7 +130,7 @@ function checkOut() {
     // Checkout value of input
     for (let row of tableRow) {
         let noValue = row.children[2].firstElementChild.value;
-        if (noValue == 0) {
+        if (noValue == 0 && noValue > -1) {
             alert('You need to fill number of product before you checkout!')
             allowShow = false;
             return false
