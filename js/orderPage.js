@@ -102,7 +102,6 @@ function clickPrice(e) {
     total = 0;
     let numbersOfGoods = e.target.value;
     if (numbersOfGoods > -1) {
-        let index = e.target.closest('tr').dataset.index;
         let price = e.target.closest('tr').children[3].textContent.slice(0, -1);
         total += Number(numbersOfGoods * price);
         showTotal(total);
@@ -190,7 +189,7 @@ function showOnProduct() {
             let tdInput = document.createElement('td');
             let input = document.createElement('input');
             input.type = 'number';
-            input.value = 1;
+            input.value = 0;
             input.addEventListener('input', clickPrice)
             tdInput.appendChild(input)
 

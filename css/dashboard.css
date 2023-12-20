@@ -119,6 +119,9 @@ body {
             }
 
             td {
+                img{
+                    width: 30px;
+                }
                 background-color: rgb(92, 92, 92);
                 text-align: center;
                 border: 1px solid white;
