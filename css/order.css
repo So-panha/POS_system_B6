@@ -224,3 +224,39 @@ body {
 .total{
     margin-left: 0.5em;
 }
+
+
+/* Payment */
+.payment{
+    width: 25%;
+    height: 70%;
+    position: absolute;
+    top: 15%;
+    left: 40%;
+    dialog{
+        width: 100%;
+        height: 100%;
+        border-radius: 5%;
+        gap: 10%;
+        background-color: beige;
+        .scan{
+            margin: 5%;
+            margin-left: 30%;
+        }
+        img{
+            margin-left: 2.5em;
+        }
+        button{
+            padding: 12px;
+            width: 30%;
+            margin-left: 7em;
+            margin-top: 1.5em;
+            background: black;
+            color: white;
+            font-size: 20px;
+            border-radius: 10px;
+            border: none;
+        }
+    }
+}
+
