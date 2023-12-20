@@ -99,6 +99,7 @@ function showTotal(cost) {
 
 // Action click price
 function clickPrice(e) {
+    total = 0;
     let numbersOfGoods = e.target.value;
     if (numbersOfGoods > -1) {
         let index = e.target.closest('tr').dataset.index;
