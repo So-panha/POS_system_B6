@@ -84,6 +84,49 @@ function showSoldOut_Income(){
     inCome.textContent = AllIncome + '$';
 }
 
+// create teble
+function showProduct() {
+    // create table tr 
+    let tbody = document.querySelector('tbody');
+    let tableTR = document.createElement('tr');
+
+    // product ID
+    let tdID = document.createElement('td');
+    // tdID.textContent =
+
+    // product Name
+    let tdName = document.createElement('td');
+    // tdName.textContent = 
+
+    // Categoty
+    let tdCategoty = document.createElement('td');
+    // tdCategory.textContent =
+
+    // price
+    let tdPrice = document.createElement('td');
+    // tdPrice.textContent =
+
+    // amount
+    let tdAmount = document.createElement('td');
+    // tdAmount.textContent =
+
+    // sell product
+    let tdSell = document.createElement('td');
+    let img = document.createElement('img');
+    img.src = "../../IMG/image/up-removebg-preview.png";
+
+    tdSell.appendChild(img);
+    tableTR.appendChild(tdID);
+    tableTR.appendChild(tdName);
+    tableTR.appendChild(tdCategoty);
+    tableTR.appendChild(tdPrice);
+    tableTR.appendChild(tdAmount);
+    tableTR.appendChild(tdSell);
+
+    tbody.appendChild(tableTR);
+}
+
+
 // Call data
 getTotalPrice();
 getDataStorage();
