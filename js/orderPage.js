@@ -13,6 +13,12 @@ let goods = document.querySelector('.show_list_ID .top');
 let product = document.querySelector('.onder_number');
 let quantity = document.querySelector('.onder_qty');
 
+// payment
+let formPayment = document.getElementById('payment');
+let btnDone = document.querySelector('.btnDone');
+let allowShow = null;
+
+
 // Create data store
 let dataStore = [];
 let dataOder = [];
@@ -26,7 +32,8 @@ let storeAllPrice = 0;
 let datahistory = [];
 
 
-
+// store
+let store = null;
 
 
 // Set data of localStorage 
@@ -48,19 +55,27 @@ let goodList = null;
 // Show product
 function showProduct(e) {
     let id = e.target.value;
-    for (let data of dataStore) {
-        if (id == data.id) {
-            goodList = data;
-            goods.firstElementChild.textContent = data.name;
-            quantity.firstElementChild.textContent = 'QTY : ' + data.quantity;
-            product.firstElementChild.textContent = data.grossPrice + ' $';
-            dataOder.push(goodList)
-        } else if (id.length == 0) {
-            goods.firstElementChild.textContent = '';
-            quantity.firstElementChild.textContent = '';
-            product.firstElementChild.textContent = '';
+    if (id != '') {
+        for (let data of dataStore) {
+            if (id == data.id) {
+                goodList = data;
+                goods.firstElementChild.textContent = data.name;
+                quantity.firstElementChild.textContent = 'QTY : ' + data.quantity;
+                product.firstElementChild.textContent = data.grossPrice + ' $';
+                store = goodList;
+            } else if (id.length == 0) {
+                goods.firstElementChild.textContent = '';
+                quantity.firstElementChild.textContent = '';
+                product.firstElementChild.textContent = '';
+                store = null;
+            }
         }
+    }else{
+        goods.firstElementChild.textContent = '';
+        quantity.firstElementChild.textContent = '';
+        product.firstElementChild.textContent = '';
     }
+
 }
 
 
@@ -110,13 +125,26 @@ function clickPrice(e) {
 
 // Checkout Goods
 function checkOut() {
-    // show form payment
-    formPayment.className = 'show';
-
+    // Get table rows
     let tableRow = document.querySelectorAll('tbody tr');
+    // Checkout value of input
     for (let row of tableRow) {
-          //    All months
-          const months = [
+        let noValue = row.children[2].firstElementChild.value;
+        if (noValue == 0) {
+            alert('You need to fill number of product before you checkout!')
+            allowShow = false;
+            return false
+        }
+    }
+    // show form payment
+    if (allowShow == null) {
+        formPayment.className = 'show';
+    } else {
+        allowShow = null;
+    }
+    for (let row of tableRow) {
+        //    All months
+        const months = [
             "January",
             "February",
             "March",
@@ -142,13 +170,13 @@ function checkOut() {
         if (hours > 12) {
             hours -= 12;
         }
-      
+
         let timeOfDay = date + '-' + month + '-' + years + " " + hours + ':' + minutes;
         console.log(timeOfDay);
         //   Create object
         let data = row.children;
         let object = {};
-        object.price = data[3].textContent.replace('$','');
+        object.price = data[3].textContent.replace('$', '');
         object.quantity = data[2].firstElementChild.value;
         object.date = timeOfDay;
         object.name = data[1].textContent;
@@ -163,6 +191,11 @@ function checkOut() {
 // show on product
 function showOnProduct() {
     // set condition
+    if (store != null) {
+        dataOder.push(store);
+        store = null;
+    }
+
     if (goodList != null) {
         // Clear product in list
         goods.firstElementChild.textContent = '';
@@ -215,7 +248,7 @@ function showOnProduct() {
             tbody.appendChild(tableTR);
 
             // delete list order
-            img.addEventListener('click',deleteTable)
+            img.addEventListener('click', deleteTable)
             function deleteTable() {
                 tableTR.remove()
             }
@@ -226,12 +259,9 @@ function showOnProduct() {
 }
 
 
-let formPayment = document.getElementById('payment');
-let btnDone = document.querySelector('.btnDone');
-
 
 // Action payment
-function showPayment(){
+function showPayment() {
     formPayment.className = 'hide';
     tbody.remove();
     tbody = document.createElement('tbody');
@@ -254,4 +284,4 @@ add.addEventListener('click', showOnProduct);
 btnCheckOut.addEventListener('click', checkOut);
 
 // Action btn payment
-btnDone.addEventListener('click',showPayment)
+btnDone.addEventListener('click', showPayment)
